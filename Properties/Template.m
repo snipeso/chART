@@ -35,13 +35,15 @@ Text.IndexSize = 10; % size of number in top left corner, largest possible text
 %%% Colormaps
 Color.Maps.Linear = parula;
 Color.Maps.Monochrome = gray;
-Color.Maps.Divergent = turbo;
+Color.Maps.Divergent = jet;
 Color.Maps.Rainbow = hsv;
 
 Color.Steps.Linear = 10;
 Color.Steps.Monochrome = 10;
 Color.Steps.Divergent = 10;
 Color.Steps.Rainbow = 10;
+
+Color.SigStar = 'k'; % sinificance stars on top of plots
 
 
 % Legend properties
