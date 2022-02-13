@@ -1,9 +1,11 @@
 function plotSpaghettiOs(Data, Stats, Indx_BL, xLabels, Legend, Colors, PlotProps)
+% plotSpaghettiOs(Data, Stats, Indx_BL, xLabels, Legend, Colors, PlotProps)
+%
 % Pretty ugly script at the moment...
 % Plots Data (P x M x N) such that each N gets its own Color line, and a
 % circle marks whether the change across Ms is significant.
-% Colors is N x 3.
-% Legend 
+% Colors is N x 3. There are defaults if Colors is empty.
+% Legend is optional, but should be N strings
 
 
 Dims = size(Data);

@@ -11,8 +11,8 @@ Axes.yPadding = Axes.xPadding;
 
 
 %%% Lines
-Line.Width = 3;
-Line.MarkerSize = 10;
+Line.Width = 5;
+Line.MarkerSize = 20;
 Line.Alpha = .3;
 
 %%% Scatter plot
