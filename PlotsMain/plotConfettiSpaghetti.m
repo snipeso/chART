@@ -2,9 +2,12 @@ function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, PlotProps)
 % Plots Data (a P x N matrix) such that each P gets its own Color line, and
 % then the average is plotted on top. If Stats struct is provided, which needs to
 % include p-values, it will also plot the little stars on top.
-% Colors is a P x 3 matrix. If there's one color per participant, then this
-% will plot one group average. If there's fewer, it will plot accordingly
-% group averages.
+% Colors is a P x 3 matrix. If unique colors = P: plots one color per
+% person, and then the group average. If unique colors = 1: plots
+% everything in one color, but participants with transparency, and mean
+% solid. If Colors = [], then the function assigns rainbow colors to
+% everyone. If unique colors < P, these are used to group the participants,
+% and plots averages acordingly.
 
 % PlotProps used:
 % - Line.LW
