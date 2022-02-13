@@ -16,6 +16,11 @@ function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, PlotProps)
 Dims = size(Data);
 XPoints = 1:Dims(2);
 
+% assign rainbow colors if none are provided
+if isempty(Colors)
+    Colors = reduxColormap(PlotProps.Color.Maps.Rainbow, Dims(1));
+end
+
 
 %%% plot each participant
 hold on

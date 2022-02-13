@@ -45,7 +45,6 @@ Color.Steps.Rainbow = 10;
 
 Color.SigStar = 'k'; % sinificance stars on top of plots
 
-
 % Legend properties
 Colorbar.Location = 'east';
 

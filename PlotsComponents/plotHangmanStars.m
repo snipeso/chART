@@ -41,6 +41,7 @@ DataRange = get(gca, 'YLim');
 
 YHeight = DataRange(2);
 Increase = diff(DataRange)*.1;
+YHeight = YHeight+Increase/2;
 
 % mirror p-values
 pValues(logical(tril(ones(size(pValues)), -1))) = 0;
@@ -112,10 +113,11 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     pValues_mirror(:, Indx) = nan;
 end
 
-if YHeight+Increase/4> OldYLims(2)
+if YHeight+Increase/4 > OldYLims(2)
     ylim([OldYLims(1), YHeight+Increase/4])
 else
     ylim(OldYLims)
 end
+
 set(gca, 'FontName', PlotProps.Text.FontName)
 xlim(OldXLims)
