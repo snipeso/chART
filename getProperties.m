@@ -7,13 +7,13 @@ function PlotProps = getProperties(PropertyType)
 
 
 if exist('Template', 'file')
-    run(Template)
+    run('Template')
 else
    addchARTpaths()
    error('Could not find template property file. Try again. Maybe this time it will work.') 
 end
 
-% Run selected, so it overwrites whatever it already has
+% Run selected, so it overwrites whatever it has
 run(PropertyType)
 
 
