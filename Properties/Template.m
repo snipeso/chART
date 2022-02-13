@@ -1,7 +1,6 @@
 % All the possible plot formatting in this script. Not all are needed for
 % most figures.
 
-
 %%% Axis positioning
 Figure.Padding = 10;
 Figure.Width = 10;
