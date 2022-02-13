@@ -16,13 +16,12 @@ function plotHangmanStars(Stats, XPoints, YLims, Colors, PlotProps)
 
 % Parameters
 LineWidth = 1;
-Trend = .1; % value for trend, minimum p-value to plot
 
 OldYLims = ylim;
 OldXLims =  xlim;
 
-if isfield(Stats, 'pFDR')
-    pValues = Stats.pFDR;
+if isfield(Stats, 'p_fdr')
+    pValues = Stats.p_fdr;
 elseif isfield(Stats, 'p')
     pValues = Stats.p;
 else
@@ -67,7 +66,7 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     [~, Indx] = max(MostSig);
     
     % identify other groups that are significantly different
-    X_Minor = XPoints(~isnan(pValues_mirror(Indx, :)) & pValues_mirror(Indx, :) < Trend);
+    X_Minor = XPoints(~isnan(pValues_mirror(Indx, :)) & pValues_mirror(Indx, :) < PlotProps.Stats.Trend);
     
     if isempty(X_Minor)
         continue
