@@ -1,17 +1,9 @@
 # EEG related stuff
-.fdt
-.set
-.mat
-.eeg
-.fig
-.log
-*.csv
+*.mat
+*.eeg
+*.fig
 *.svg
-*.loc
   
-
-# exceptions
-!All_Sentences.csv
 
 # Windows default autosave extension
 *.asv
@@ -41,10 +33,3 @@ codegen/
 
 # Simulink cache files
 *.slxc
-
-# To keep
-!StandardChanlocs128.mat
-!Cz.mat
-generalFunctions/desktop.ini
-.Rproj.user
-Analysis/surfmesh.mat
