@@ -66,7 +66,7 @@ end
 % plot means
 for Indx_G = 1:size(MEANS, 1)
     plot(XPoints, MEANS(Indx_G, :), 'LineWidth', PlotProps.Line.Width, ...
-        'Color', ColorGroups(Indx_G, :), 'HandleVisibility', 'off')
+        'Color', ColorGroups(Indx_G, :), 'HandleVisibility', 'on')
     scatter(XPoints, MEANS(Indx_G, :), PlotProps.Scatter.Size, ColorGroups(Indx_G, :), ...
         'filled', 'MarkerEdgeColor',  ColorGroups(Indx_G, :), 'HandleVisibility', 'off')
 end

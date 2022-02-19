@@ -1,4 +1,6 @@
 function NewLims = setLims(Dim1, Dim2, Axis)
+% NewLims = setLims(Dim1, Dim2, Axis)
+%
 % function to set all subplots to the same values.
 % Dim1 and 2 indicate the subfigure grid, and Axis is a string ('x', 'y', 'c')
 
