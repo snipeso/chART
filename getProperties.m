@@ -33,4 +33,3 @@ PlotProps.Colorbar = Colorbar;
 PlotProps.Indexes = Indexes;
 PlotProps.Stats = Stats;
 PlotProps.External = External;
-

@@ -1,10 +1,9 @@
-% Formatting for science papers.
-
+% Formatting for A0 poster.
 
 %%% Axis positioning
 Figure.Padding = 40;
-Figure.Width = 42;
-Figure.Height = 60;
+Figure.Width = 84.1;
+Figure.Height = 118.8;
 Figure.Units = 'centimeters';
 
 Axes.xPadding = 25;
@@ -26,18 +25,18 @@ Patch.Alpha = .4;
 Text.FontName = 'Tw Cen MT';
 
 % Font sizes
-Text.LegendSize = 15; % smallest text
-Text.AxisSize = 18; % text size of x and y axes numbers and labels
-Text.TitleSize = 22; % size of title
-Text.IndexSize = 30; % size of number in top left corner, largest possible text
+Text.LegendSize = 20; % smallest text
+Text.AxisSize = 25; % text size of x and y axes numbers and labels
+Text.TitleSize = 40; % size of title
+Text.IndexSize = 60; % size of number in top left corner, largest possible text
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% External
 
 %%% EEGLAB-specific properties
-External.EEGLAB.TopoRes = 300; %  image resolution for topoplots
-External.EEGLAB.MarkerSize = 5; % size of significant channels
+External.EEGLAB.TopoRes = 500; %  image resolution for topoplots
+External.EEGLAB.MarkerSize = 7; % size of significant channels
 
 
 

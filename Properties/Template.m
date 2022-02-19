@@ -43,7 +43,7 @@ Color.Steps.Monochrome = 10;
 Color.Steps.Divergent = 10;
 Color.Steps.Rainbow = 10;
 
-Color.SigStar = 'k'; % sinificance stars on top of plots
+Color.SigStar = 'k'; % significance stars on top of plots
 Color.Generic = [.5 .5 .5];
 Color.Background = [1 1 1];
 
@@ -56,6 +56,7 @@ Indexes.Letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 Indexes.Numerals = {'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'};
 
 
+Labels = struct();
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Statistics Limits
 Stats.Alpha = .05;
