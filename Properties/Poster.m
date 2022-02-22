@@ -9,7 +9,6 @@ Figure.Units = 'centimeters';
 Axes.xPadding = 25;
 Axes.yPadding = Axes.xPadding;
 
-
 %%% Lines
 Line.Width = 3;
 Line.MarkerSize = 10;
