@@ -70,6 +70,6 @@ end
 
 lighting none
 axis tight
-padAxis('x', .75)
+
 
 set(gca, 'Position', OldPosition)
