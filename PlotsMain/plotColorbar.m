@@ -1,5 +1,5 @@
 function plotColorbar(Colormap, CLims, CLabel,  PlotProps)
-h = colorbar('location', PlotProps.Colorbar.Position);
+h = colorbar('location', PlotProps.Colorbar.Location);
 ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize)
 h.TickLength = 0;
 caxis(CLims)

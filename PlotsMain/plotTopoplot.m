@@ -35,6 +35,7 @@ set(A.Children, 'LineWidth', 1)
 
 if ~isempty(CLabel)
     h = colorbar;
+    h.TickLength = 0;
     ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize) % text style needs to be specified for label, because its weird
 end
 
