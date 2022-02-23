@@ -1,4 +1,4 @@
-function plotEpoch(Data, t, HighlightChannels, HighlightColors, YLabels, Events, YGaps, PlotProps)
+function plotEpoch(Data, t, HighlightChannels, HighlightColors, YLabels, Events, YGap, PlotProps)
 %
 %
 % Plots all channels of Data (Ch x T) matrix.
@@ -18,7 +18,7 @@ DimsD = size(Data);
 DimsE = size(Events);
 
 % spread channels along Y axis
-if isempty(YGaps)
+if isempty(YGap)
     YGap = 4.5*nanmean(std(Data, 0, 2));
 end
 
