@@ -21,17 +21,13 @@ function Axes = subfigure(Space, Grid, CornerLocation, Size, LabelSpace, Letter,
 % delete(Axes);
 % then run each sub axes with Space filled
 
+PaddingExterior = PlotProps.Figure.Padding;
 
 
 % if no space provided, use whole figure
 set(gcf, 'units', 'pixels')
 FigSpace = get(gcf, 'position');
-
-if LabelSpace
-    PaddingLabels = PlotProps.Axes.labelPadding;
-else
-    PaddingLabels = 0;
-end
+FigSpace = [FigSpace([1, 2]) + PaddingExterior, FigSpace([3, 4]) - PaddingExterior*2];
 
 if isempty(Space)
     Space = FigSpace;
@@ -41,21 +37,24 @@ if isempty(Size)
     Size = [1 1];
 end
 
+if LabelSpace
+    PaddingLabels = PlotProps.Axes.labelPadding;
+else
+    PaddingLabels = 0;
+end
+
 % set up padding
 xPadding = PlotProps.Axes.xPadding;
 yPadding = PlotProps.Axes.yPadding;
-PaddingExterior = PlotProps.Figure.Padding;
-FontSize = PlotProps.Text.AxisSize;
+FontSize = PlotProps.Text.IndexSize;
 
 % get grid dividers
-X = linspace(PaddingExterior, Space(3)-PaddingExterior, Grid(2)+1);
-Y = flip(linspace(PaddingExterior, Space(4)-PaddingExterior, Grid(1)+1));
-
-
+X = linspace(Space(1), Space(1)+Space(3), Grid(2)+1);
+Y = flip(linspace(Space(2), Space(2)+Space(4), Grid(1)+1));
 
 % get axes size
-axisWidth = ((Space(3)-PaddingExterior*2)/Grid(2));
-axisHeight = ((Space(4)-PaddingExterior*2)/Grid(1));
+axisWidth = X(2)-X(1);
+axisHeight = Y(1)-Y(2);
 
 % get position
 Left = X(CornerLocation(2))+xPadding+PaddingLabels;
@@ -82,10 +81,10 @@ set(gca, 'Units', 'normalized')
 
 
 %%% Debugging stuff
-% %
+% % %
 % % figure padding
 % Box = annotation('rectangle', [0 0 0 0], 'Color', 'red', 'Units', 'pixels');
-% Box.Position = [PaddingExterior, PaddingExterior, Space(3)-PaddingExterior*2,  Space(4)-PaddingExterior*2];
+% Box.Position = FigSpace;
 % 
 % 
 % % Axis padding
