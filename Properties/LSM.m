@@ -17,6 +17,7 @@ Color.Maps.Linear =  flip(colorcet('L17'));
 Color.Maps.Monochrome = colorcet('L2');
 Color.Maps.Divergent = colorcet('D1A');
 Color.Maps.Rainbow = unirainbow;
+% Color.Maps.Rainbow = colorcet('R2');
 
 Color.Steps.Linear = 20;
 Color.Steps.Monochrome = 20;
@@ -47,13 +48,31 @@ end
 Color.Levels = flip(getColors([1 3], 'rainbow', 'red')); % M2S red
 Color.spEpochs = getColors([1 2], 'rainbow', 'green'); % speech green
 
-% other colors
-Color.Participants = reduxColormap(Color.Maps.Rainbow, 18);
-
 % colors + shades for all the tasks
 Color.Sessions = getColors([numel(AllTasks), 3], 'rainbow');
 
-
+% Participants colors
+Color.Participants = [
+    217, 61 61;
+    218 94 60;
+    216, 121,62;
+    215, 150, 63;
+    215, 175, 62;
+    200, 196, 42;
+    160, 200, 38;
+    121, 183, 39;
+    23, 161, 36;
+    39, 187, 95;
+    48, 182, 147;
+    30, 173, 192;
+    56, 158, 228;
+    90, 123, 228;
+    122, 97, 229;
+    155, 106, 220;
+    229, 105, 179;
+    225, 77, 140
+    ]/255;
+% Color.Participants = reduxColormap(Color.Maps.Rainbow, 18);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Statistics Limits
