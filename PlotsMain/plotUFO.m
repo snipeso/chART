@@ -41,17 +41,22 @@ for Indx_N = 1:Dims(2)
             
             % HACK to plot gray and pale gray legend
             if Indx_M == 1
-                plot([X, X], squeeze(CI(Indx_M, Indx_N, :)), 'Color', GenericColor(Indx_M, :), 'LineWidth', LW, 'HandleVisibility', 'on')
+                plot([X, X], squeeze(CI(Indx_M, Indx_N, :)), ...
+                    'Color', GenericColor(Indx_M, :), 'LineWidth', LW, ...
+                    'HandleVisibility', 'on')
             end
             
-            plot([X, X], squeeze(CI(Indx_M, Indx_N, :)), 'Color', Color(Indx_M, :), 'LineWidth', LW, 'HandleVisibility', 'off')
+            plot([X, X], squeeze(CI(Indx_M, Indx_N, :)), 'Color', Color(Indx_M, :), ...
+                'LineWidth', LW, 'HandleVisibility', 'off')
         else
             X = XMajorPoints(Indx_M);
-            plot([X, X], squeeze(CI(Indx_M, :)), 'Color', Color(Indx_M, :), 'LineWidth', LW, 'HandleVisibility', 'off')
+            plot([X, X], squeeze(CI(Indx_M, :)), 'Color', Color(Indx_M, :), ...
+                'LineWidth', LW, 'HandleVisibility', 'off')
         end
     end
     
-    scatter( XMinorPoints(:, Indx_N), Data(:, Indx_N), ScatterSize, Color, 'filled', 'HandleVisibility', 'off')
+    scatter( XMinorPoints(:, Indx_N), Data(:, Indx_N), ScatterSize, Color, ...
+        'filled', 'HandleVisibility', 'off')
 end
 
 
