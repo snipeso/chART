@@ -7,7 +7,6 @@ function plotGloWorms(Data, X, Highlights, Colors, PlotProps)
 % highlighted.
 % Colors is S x 3 colors in RGB.
 
-
 Dims = size(Data);
 
 % plot thin lines of data
