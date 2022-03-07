@@ -20,7 +20,7 @@ Line.Alpha = .3;
 Scatter.Size = 100;
 
 %%% Patches
-Patch.Alpha = .4;
+Patch.Alpha = .2;
 
 %%% Text
 Text.FontName = 'Tw Cen MT';
@@ -29,7 +29,7 @@ Text.FontName = 'Tw Cen MT';
 Text.LegendSize = 18; % smallest text
 Text.AxisSize = 22; % text size of x and y axes numbers and labels
 Text.TitleSize = 30; % size of title
-Text.IndexSize = 35; % size of number in top left corner, largest possible text
+Text.IndexSize = 38; % size of number in top left corner, largest possible text
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

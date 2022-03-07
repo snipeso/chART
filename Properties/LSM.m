@@ -6,7 +6,7 @@
 Line.Alpha = .3;
 
 %%% Patches
-Patch.Alpha = .4;
+Patch.Alpha = .2;
 
 %%% Text
 Text.FontName = 'TW Cen MT';
