@@ -2,7 +2,7 @@ function plotHangmanStars(Stats, XPoints, YLims, Colors, PlotProps)
 % function that plots all the pairwise comparisons in Stats.p, with a
 % single line for each effect. Sorted from bottom to top by total number of
 % significant comparisons.
-% Stats is a struct that needs to contain either "p" or "pFDR" as a N x N
+% Stats is a struct that needs to contain either "p" or "p_fdr" as a N x N
 % matrix.
 % XPoints is an array of N values on the x axis.
 % YLims is an optional setting so that the stars start after a certain
@@ -15,7 +15,7 @@ function plotHangmanStars(Stats, XPoints, YLims, Colors, PlotProps)
 % - Color.SigStar
 
 % Parameters
-LineWidth = 1;
+LineWidth = PlotProps.Line.Width/2;
 
 OldYLims = ylim;
 OldXLims =  xlim;

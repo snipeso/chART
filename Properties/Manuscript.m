@@ -2,7 +2,7 @@
 
 
 %%% Axis positioning
-Figure.Padding = 40;
+Figure.Padding = 30;
 Figure.Width = 42;
 Figure.Height = 60;
 Figure.Units = 'centimeters';
@@ -12,8 +12,8 @@ Axes.yPadding = Axes.xPadding;
 Axes.labelPadding = 30;
 
 %%% Lines
-Line.Width = 3;
-Line.MarkerSize = 10;
+Line.Width = 4;
+Line.MarkerSize = 15;
 Line.Alpha = .3;
 
 %%% Scatter plot
@@ -26,10 +26,10 @@ Patch.Alpha = .4;
 Text.FontName = 'Tw Cen MT';
 
 % Font sizes
-Text.LegendSize = 15; % smallest text
-Text.AxisSize = 18; % text size of x and y axes numbers and labels
-Text.TitleSize = 22; % size of title
-Text.IndexSize = 30; % size of number in top left corner, largest possible text
+Text.LegendSize = 18; % smallest text
+Text.AxisSize = 22; % text size of x and y axes numbers and labels
+Text.TitleSize = 30; % size of title
+Text.IndexSize = 35; % size of number in top left corner, largest possible text
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

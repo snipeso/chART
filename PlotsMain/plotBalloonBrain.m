@@ -49,7 +49,8 @@ switch Orientation
             plotOval(Focus1, Focus2, Eccentricity, 'x', PatchColor, PatchAlpha)
         end
         
-    case 'left-outside'        
+        
+    case 'left-outside'
         ft_sourceplot_hemisphere(cfg, Maps.left);
         view(-90,0)
         
@@ -64,7 +65,7 @@ switch Orientation
         end
         
     case 'right-outside'
-       ft_sourceplot_hemisphere(cfg, Maps.right);
+        ft_sourceplot_hemisphere(cfg, Maps.right);
         view(90,0)
 end
 
@@ -73,3 +74,7 @@ axis tight
 
 
 set(gca, 'Position', OldPosition)
+
+title(Orientation, 'FontSize', PlotProps.Text.AxisSize, ...
+    'FontWeight', 'normal', 'FontName', PlotProps.Text.FontName)
+

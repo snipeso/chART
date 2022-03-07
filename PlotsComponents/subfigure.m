@@ -21,6 +21,8 @@ function Axes = subfigure(Space, Grid, CornerLocation, Size, LabelSpace, Letter,
 % delete(Axes);
 % then run each sub axes with Space filled
 
+
+
 PaddingExterior = PlotProps.Figure.Padding;
 
 
@@ -31,6 +33,9 @@ FigSpace = [FigSpace([1, 2]) + PaddingExterior, FigSpace([3, 4]) - PaddingExteri
 
 if isempty(Space)
     Space = FigSpace;
+    FontSize = PlotProps.Text.IndexSize;
+else
+    FontSize = PlotProps.Text.TitleSize;
 end
 
 if isempty(Size)
@@ -46,7 +51,6 @@ end
 % set up padding
 xPadding = PlotProps.Axes.xPadding;
 yPadding = PlotProps.Axes.yPadding;
-FontSize = PlotProps.Text.IndexSize;
 
 % get grid dividers
 X = linspace(Space(1), Space(1)+Space(3), Grid(2)+1);
@@ -72,7 +76,7 @@ if ~isempty(Letter)
     Txt = annotation('textbox', [0 0 0 0], 'string', Letter, 'Units', 'pixels', ...
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
     Txt.Position =  [X(CornerLocation(2))-FontSize+xPadding, ...
-        Y(CornerLocation(1)-Size(1)+1)+FontSize-xPadding/2 0 0];
+        Y(CornerLocation(1)-Size(1)+1) 0 0];
     Txt.Units = 'normalized';
 end
 
