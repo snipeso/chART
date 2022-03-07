@@ -60,8 +60,7 @@ set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSiz
 xlim([.7 Dims(1)+.3])
 xticks(flip(XMajorPoints))
 xticklabels(flip(XLabels))
-Ax = gca;
-Ax.XAxis.FontSize = PlotProps.Text.AxisSize; % ???
+
 
 ylim([min(CI(:)),  max(CI(:))])
 padAxis('x')
