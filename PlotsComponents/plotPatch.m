@@ -16,7 +16,6 @@ end
 
 [Starts, Ends] = data2windows(Patches);
 
-
 hold on
 plot(X, D1, 'Color', [Color, Alpha], 'LineWidth', LW,  'HandleVisibility', 'off')
 
@@ -31,13 +30,10 @@ for Indx_P = 1:numel(Starts)
     else
         HV = 'off';
     end
-%     patch([x fliplr(x)], [y1 fliplr(y2)], Color, 'FaceAlpha',Alpha, ...
-%         'EdgeColor', Color, 'EdgeAlpha', Alpha, 'LineWidth', 0.5, 'HandleVisibility', HV)
-    
         patch([x fliplr(x)], [y1 fliplr(y2)], Color, 'FaceAlpha',Alpha, ...
             'EdgeColor', 'none', 'HandleVisibility', HV)
-    hold off
 end
+hold off
 
 axis tight
 
