@@ -37,7 +37,7 @@ Text.IndexSize = 38; % size of number in top left corner, largest possible text
 
 %%% EEGLAB-specific properties
 External.EEGLAB.TopoRes = 300; %  image resolution for topoplots
-External.EEGLAB.MarkerSize = 5; % size of significant channels
+External.EEGLAB.MarkerSize = 3; % size of significant channels
 
 
 
