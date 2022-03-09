@@ -1,6 +1,6 @@
 function plotLadder(Data, XLabels, YLabels, Colors, Legend, LegendPosition, PlotProps)
 % function for plotting change in values
-% Data is Ch x S 
+% Data is Ch x S
 
 Dims = size(Data);
 
@@ -15,15 +15,12 @@ set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSiz
 hold on
 for Indx = 1:Dims(1)
     C = Colors(Indx, :);
-
+    
     UC = ismember(UniqueColors, C, 'rows');
-
+    
     if any(UC) && isempty(YLabels{Indx})
-        HV = 'on';
         LegendOrder = [LegendOrder, find(UC)];
         UniqueColors(UC, :) = [2 2 2];
-    else
-        HV = 'off';
     end
     
     if ~isempty(YLabels{Indx})
@@ -33,7 +30,7 @@ for Indx = 1:Dims(1)
     end
     
     plot(X, Data(Indx, :), '-', 'LineWidth', PlotProps.Line.Width, ...
-        'Color', [C, Alpha], 'HandleVisibility', HV, 'LineJoin', 'round')
+        'Color', [C, Alpha], 'HandleVisibility', 'off', 'LineJoin', 'round')
     scatter(X, Data(Indx, :), PlotProps.Scatter.Size, 'HandleVisibility', 'off', ...
         'MarkerFaceColor', C, 'MarkerFaceAlpha', Alpha, 'MarkerEdgeCOlor', 'none')
 end
@@ -56,6 +53,16 @@ axis off
 
 
 if ~isempty(Legend)
+    
+    for Indx_C = 1:numel(Legend)
+        UniqueColors = unique(Colors, 'rows');
+        C = UniqueColors(Indx_C, :);
+        plot([0 0], [0 .1], '-', 'LineWidth', PlotProps.Line.Width, ...
+            'Color', C, 'HandleVisibility', 'on', 'LineJoin', 'round')
+    end
+    
     legend(Legend(LegendOrder), 'location', LegendPosition)
 end
+
+
 
