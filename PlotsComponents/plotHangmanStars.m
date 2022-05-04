@@ -69,6 +69,8 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     X_Minor = XPoints(~isnan(pValues_mirror(Indx, :)) & pValues_mirror(Indx, :) < PlotProps.Stats.Trend);
     
     if isempty(X_Minor)
+            pValues_mirror(Indx, :) = nan;
+    pValues_mirror(:, Indx) = nan;
         continue
     end
     
