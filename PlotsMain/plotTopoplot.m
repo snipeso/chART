@@ -1,5 +1,5 @@
 function plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, Colormap, PlotProps)
-% plotTopo(Data, Chanlocs, CLims, CLabel, Colormap, Format)
+% plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, Colormap, PlotProps)
 
 % pretty way of using EEGLAB's topoplot function. This is not my own plot.
 % Maybe one day it will be.
@@ -27,7 +27,7 @@ else
 
     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
-        'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.p<.05)), 'o', [.8 .8 .8],  PlotProps.External.EEGLAB.MarkerSize, .05});
+        'electrodes', 'on');
 end
 
 
