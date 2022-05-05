@@ -60,7 +60,7 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     
     % identify next biggest group
     TotSig = sum(~isnan(pValues_mirror)); % total number of significant comparisons
-    SumP = 1-nansum(pValues_mirror); % sum of p-values, to add a little weight in case of ties
+    SumP = sum(pValues_mirror<PlotProps.Stats.Trend) + 1-mean(pValues_mirror, 'omitnan'); % sum of p-values, to add a little weight in case of ties
     MostSig = TotSig + SumP;
     
     [~, Indx] = max(MostSig);
