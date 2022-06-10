@@ -16,10 +16,11 @@ end
 Indexes = 1:numel(Chanlocs);
 
 Chanlocs = shiftTopoChannels(Chanlocs, .06, 'y'); % little adjustment to center the chanlocs better
+Colormap = reduxColormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap));
 
 if isempty(Stats)
     topoplot(Data, Chanlocs, 'style', 'map', 'headrad', 'rim', 'whitebk', 'on', ...
-        'electrodes', 'on',  'maplimits', CLims, 'gridscale', PlotProps.External.EEGLAB.TopoRes);
+        'electrodes', 'on',  'maplimits', CLims, 'gridscale', PlotProps.External.EEGLAB.TopoRes, 'colormap', Colormap);
 else
 %     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
 %         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
@@ -27,7 +28,7 @@ else
 
     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
-        'electrodes', 'on');
+        'electrodes', 'on', 'colormap', Colormap);
 end
 
 
@@ -43,5 +44,4 @@ if ~isempty(CLabel)
     ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize) % text style needs to be specified for label, because its weird
 end
 
-Colormap = reduxColormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap));
-set(gca, 'Colormap', Colormap)
+% set(gca, 'Colormap', Colormap)
