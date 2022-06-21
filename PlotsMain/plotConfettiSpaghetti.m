@@ -19,7 +19,12 @@ function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, PlotProps)
 % - Text.FontSize
 
 Dims = size(Data);
+
+if isnumeric(XLabels)
+    XPoints = XLabels;
+else
 XPoints = 1:Dims(2);
+end
 
 % assign rainbow colors if none are provided
 if isempty(Colors)
