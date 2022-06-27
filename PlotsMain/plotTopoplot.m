@@ -22,13 +22,13 @@ if isempty(Stats)
     topoplot(Data, Chanlocs, 'style', 'map', 'headrad', 'rim', 'whitebk', 'on', ...
         'electrodes', 'on',  'maplimits', CLims, 'gridscale', PlotProps.External.EEGLAB.TopoRes, 'colormap', Colormap);
 else
+    topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
+        'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
+        'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
+
 %     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
 %         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
-%         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
-
-    topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
-        'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
-        'electrodes', 'on', 'colormap', Colormap);
+%         'electrodes', 'on', 'colormap', Colormap);
 end
 
 
@@ -44,4 +44,4 @@ if ~isempty(CLabel)
     ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize) % text style needs to be specified for label, because its weird
 end
 
-% set(gca, 'Colormap', Colormap)
+set(gca, 'Colormap', Colormap)
