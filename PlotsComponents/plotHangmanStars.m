@@ -120,5 +120,4 @@ else
     ylim(OldYLims)
 end
 
-set(gca, 'FontName', PlotProps.Text.FontName)
 xlim(OldXLims)
