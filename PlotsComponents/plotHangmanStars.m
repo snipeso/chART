@@ -66,7 +66,9 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     [~, Indx] = max(MostSig);
     
     % identify other groups that are significantly different
-    X_Minor = XPoints(~isnan(pValues_mirror(Indx, :)) & pValues_mirror(Indx, :) < PlotProps.Stats.Trend);
+    X_Indx = ~isnan(pValues_mirror(Indx, :)) & pValues_mirror(Indx, :) < PlotProps.Stats.Trend;
+    Ps = pValues_mirror(X_Indx, :);
+    X_Minor = XPoints(X_Indx);
     
     if isempty(X_Minor)
             pValues_mirror(Indx, :) = nan;
@@ -75,6 +77,7 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     end
     
     X_All = [X_Minor, XPoints(Indx)]; % needed for ticks
+    X_All = [min(X_All), max(X_All)];
     
     % identify color of line
     if size(Colors, 1) == nGroups
@@ -101,7 +104,7 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
             '-o',  'MarkerFaceColor', C, 'MarkerSize', .5, 'LineWidth', LineWidth, 'Color', C)
         
         % plot stars
-        P = pValues_mirror(Indx_x, Indx);
+        P = Ps(Indx_x, Indx);
         Symbol = getSigSymbol(P);
         if ~isempty(Symbol)
             text(X_Minor(Indx_x), YHeight-Increase*.7, Symbol, 'HorizontalAlignment', 'center', ...
