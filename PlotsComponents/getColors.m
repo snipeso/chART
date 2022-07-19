@@ -49,6 +49,16 @@ switch N(1)
         MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive];
+    case 9
+           MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
+            AllColors.green; AllColors.purple; AllColors.orange;
+            AllColors.teal; AllColors.olive; AllColors.pink];
+
+    case 10
+  MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
+            AllColors.green; AllColors.purple; AllColors.orange;
+            AllColors.teal; AllColors.olive; AllColors.pink; AllColors.black];
+
     otherwise
         error('too many colors')
 end

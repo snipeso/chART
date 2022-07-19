@@ -52,19 +52,19 @@ TotGroups = size(ColorGroups, 1);
 % get means
 if TotGroups == Dims(1) % if there's one color per participant, so no special groups
     
-    MEANS = nanmean(Data, 1);
+    MEANS = mean(Data, 1, 'omitnan');
     ColorGroups = [0 0 0];
 
 elseif  TotGroups == 1 % if there's one color for all values
     
-     MEANS = nanmean(Data, 1);
+     MEANS = mean(Data, 1, 'omitnan');
     
 else
     % plot a separate mean for each color group
     MEANS = nan(TotGroups, Dims(2));
     
     for Indx_G = 1:TotGroups
-       MEANS(Indx_G, :) = nanmean(Data(Groups==Indx_G, :));
+       MEANS(Indx_G, :) = mean(Data(Groups==Indx_G, :), 'omitnan');
     end
 end
 
@@ -83,8 +83,9 @@ end
 
 
 % set x axis
-xlim([.5, Dims(2)+.5])
-xticks(1:Dims(2))
+xlim([XPoints(1)-.5 XPoints(end)+.5])
+xticks(XPoints)
+
 if ~isempty(XLabels)
     xticklabels(XLabels)
 end

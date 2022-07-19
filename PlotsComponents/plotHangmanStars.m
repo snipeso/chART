@@ -74,7 +74,7 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
         continue
     end
     
-    X_All = [X_Minor, Indx]; % needed for ticks
+    X_All = [X_Minor, XPoints(Indx)]; % needed for ticks
     
     % identify color of line
     if size(Colors, 1) == nGroups
@@ -96,15 +96,15 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
         '-o',  'MarkerFaceColor', C, 'MarkerSize', .5, 'LineWidth', LineWidth, 'Color', C)
     
     % plot minor posts
-    for x = X_Minor
-        plot([x, x], [YHeight-Increase*.2, YHeight], ...
+    for Indx_x = 1:numel(X_Minor)
+        plot(X_Minor([Indx_x, Indx_x]), [YHeight-Increase*.2, YHeight], ...
             '-o',  'MarkerFaceColor', C, 'MarkerSize', .5, 'LineWidth', LineWidth, 'Color', C)
         
         % plot stars
-        P = pValues_mirror(x, Indx);
+        P = pValues_mirror(Indx_x, Indx);
         Symbol = getSigSymbol(P);
         if ~isempty(Symbol)
-            text(x, YHeight-Increase*.7, Symbol, 'HorizontalAlignment', 'center', ...
+            text(X_Minor(Indx_x), YHeight-Increase*.7, Symbol, 'HorizontalAlignment', 'center', ...
                 'Color', C, 'FontSize', PlotProps.Text.LegendSize, 'FontName', PlotProps.Text.FontName)
         end
     end

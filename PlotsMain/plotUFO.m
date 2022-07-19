@@ -23,6 +23,10 @@ else
 end
 
 hold on
+
+% plot 0 
+plot([0 Dims(1)+1], [0 0], 'k', 'LineWidth', 2, 'HandleVisibility', 'off')
+
 for Indx_N = 1:Dims(2)
     
     % determine if colors provided come from m or n dimention, and choose
@@ -72,10 +76,10 @@ padAxis('x')
 padAxis('y')
 
 if ~isempty(CLabels)
-    legend(CLabels)
+    legend(CLabels, 'Location', 'northwest')
 end
 
 if strcmpi(Orientation, 'vertical')
     view([90 90])
 end
-
+set(gca, 'ygrid', 'on')
