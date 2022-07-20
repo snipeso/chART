@@ -39,7 +39,8 @@ end
 DataRange = get(gca, 'YLim');
 
 YHeight = DataRange(2);
-Increase = diff(DataRange)*.075;
+% Increase = diff(DataRange)*.075;
+Increase = diff(DataRange)*.05;
 YHeight = YHeight+Increase/2;
 
 % mirror p-values
