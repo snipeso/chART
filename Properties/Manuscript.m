@@ -2,22 +2,22 @@
 
 
 %%% Axis positioning
-Figure.Padding = 30;
-Figure.Width = 42;
-Figure.Height = 60;
+Figure.Padding = 15;
+Figure.Width = 21;
+Figure.Height = 30;
 Figure.Units = 'centimeters';
 
-Axes.xPadding = 25;
+Axes.xPadding = 12.5;
 Axes.yPadding = Axes.xPadding;
-Axes.labelPadding = 30;
+Axes.labelPadding = 15;
 
 %%% Lines
-Line.Width = 4;
-Line.MarkerSize = 15;
+Line.Width = 2;
+Line.MarkerSize = 7.5;
 Line.Alpha = .3;
 
 %%% Scatter plot
-Scatter.Size = 100;
+Scatter.Size = 30;
 
 %%% Patches
 Patch.Alpha = .2;
@@ -26,18 +26,21 @@ Patch.Alpha = .2;
 Text.FontName = 'Tw Cen MT';
 
 % Font sizes
-Text.LegendSize = 18; % smallest text
-Text.AxisSize = 22; % text size of x and y axes numbers and labels
-Text.TitleSize = 30; % size of title
-Text.IndexSize = 38; % size of number in top left corner, largest possible text
+Text.LegendSize = 9; % smallest text
+Text.AxisSize = 11; % text size of x and y axes numbers and labels
+Text.TitleSize = 14; % size of title
+Text.IndexSize = 19; % size of number in top left corner, largest possible text
+
+%%% Significance stars
+SigStar.Shift = .1;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% External
 
 %%% EEGLAB-specific properties
-External.EEGLAB.TopoRes = 300; %  image resolution for topoplots
-External.EEGLAB.MarkerSize = 3; % size of significant channels
+External.EEGLAB.TopoRes = 150; %  image resolution for topoplots
+External.EEGLAB.MarkerSize = 1.5; % size of significant channels
 
 
 

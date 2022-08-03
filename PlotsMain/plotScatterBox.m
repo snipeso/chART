@@ -34,6 +34,8 @@ end
 
 set(findobj(gca,'LineStyle','--'),'LineStyle','-') % make whiskers solid line
 set(findobj(gca,'LineStyle','-'),'LineWidth',PlotProps.Line.Width) % make all lines quite thick
+set(findobj(gca,'Marker','none'),'Marker','.')
+set(findobj(gca,'Tag','Outliers'),'Marker','none')
 
 %%% plot pairwise significances
 plotHangmanStars(Stats, 1:Dims(2), YLims, BoxColor, PlotProps)

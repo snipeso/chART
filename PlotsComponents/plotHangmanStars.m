@@ -16,6 +16,7 @@ function plotHangmanStars(Stats, XPoints, YLims, Colors, PlotProps)
 
 % Parameters
 LineWidth = PlotProps.Line.Width/2;
+PostMarkerSize = LineWidth;
 
 OldYLims = ylim;
 OldXLims =  xlim;
@@ -39,8 +40,7 @@ end
 DataRange = get(gca, 'YLim');
 
 YHeight = DataRange(2);
-% Increase = diff(DataRange)*.075;
-Increase = diff(DataRange)*.05;
+Increase = diff(DataRange)*PlotProps.SigStar.Shift;
 YHeight = YHeight+Increase/2;
 
 % mirror p-values
@@ -93,16 +93,16 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
     YHeight = YHeight+Increase;
     
     % plot main horizontal bar
-    plot(X_All, YHeight*ones(size(X_All)),  '-o',  'MarkerFaceColor', C, 'MarkerSize', .5, 'LineWidth', LineWidth, 'Color', C)
+    plot(X_All, YHeight*ones(size(X_All)),  '-o',  'MarkerFaceColor', C, 'Marker', '.', 'MarkerSize', PostMarkerSize, 'LineWidth', LineWidth, 'Color', C)
     
     % plot main post
     plot([XPoints(Indx), XPoints(Indx)], [YHeight-Increase*.75, YHeight], ...
-        '-o',  'MarkerFaceColor', C, 'MarkerSize', .5, 'LineWidth', LineWidth, 'Color', C)
+        '-o',  'MarkerFaceColor', C, 'MarkerSize', PostMarkerSize, 'Marker', '.', 'LineWidth', LineWidth, 'Color', C)
     
     % plot minor posts
     for Indx_x = 1:numel(X_Minor)
         plot(X_Minor([Indx_x, Indx_x]), [YHeight-Increase*.2, YHeight], ...
-            '-o',  'MarkerFaceColor', C, 'MarkerSize', .5, 'LineWidth', LineWidth, 'Color', C)
+            '-o',  'MarkerFaceColor', C, 'MarkerSize', PostMarkerSize, 'Marker', '.',  'LineWidth', LineWidth, 'Color', C)
         
         % plot stars
         P = Ps(Indx_x, Indx);

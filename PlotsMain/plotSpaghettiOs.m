@@ -44,19 +44,19 @@ Marked = [false false]; % used to keep track of handles for legend; first item i
 
 % plot mean lines
 hold on
-for Indx_N = 1:Dims(3)
-    C = Colors(Indx_N, :);
-    
-    MEAN = squeeze(nanmean(Data(:, :, Indx_N), 1));
-    plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', HV);
-end
+% for Indx_N = 1:Dims(3)
+%     C = Colors(Indx_N, :);
+%     
+%     MEAN = squeeze(nanmean(Data(:, :, Indx_N), 1));
+%     plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', HV);
+% end
 
 % plot significance marker if present
 for Indx_N = 1:Dims(3) % loop through lines
     
     C = Colors(Indx_N, :);
-    MEAN = squeeze(nanmean(Data(:, :, Indx_N), 1));
-    
+    MEAN = squeeze(mean(Data(:, :, Indx_N), 1, 'omitnan'));
+    plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', HV);
     for Indx_S = 1:Dims(2) % loop through points in line
         
         if Indx_S == Indx_BL % don't plot marker for reference session
