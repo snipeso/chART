@@ -1,6 +1,6 @@
 function plotColorbar(Colormap, CLims, CLabel, PlotProps)
 
-h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w');
+h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', 'LineWidth',2);
 ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize,'Color', 'k')
 
 
