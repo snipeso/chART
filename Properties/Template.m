@@ -70,7 +70,7 @@ Stats.Trend = .1;
 %%% EEGLAB-specific properties
 External.EEGLAB.TopoRes = 50; %  image resolution for topoplots
 External.EEGLAB.MarkerSize = 2; % size of significant channels
-
+External.EEGLAB.Line.Width = 1;
 
 
 

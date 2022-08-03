@@ -42,21 +42,21 @@ Trend = ['p<', TrendAlpha(2:end)];
 
 Marked = [false false]; % used to keep track of handles for legend; first item is Trend, second is Sig
 
-% plot mean lines
+% plot mean lines first (stupid hack to get the order of the legend right)
 hold on
-% for Indx_N = 1:Dims(3)
-%     C = Colors(Indx_N, :);
-%     
-%     MEAN = squeeze(nanmean(Data(:, :, Indx_N), 1));
-%     plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', HV);
-% end
+for Indx_N = 1:Dims(3)
+    C = Colors(Indx_N, :);
+    
+    MEAN = squeeze(mean(Data(:, :, Indx_N), 1, 'omitnan'));
+    plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', HV);
+end
 
 % plot significance marker if present
 for Indx_N = 1:Dims(3) % loop through lines
     
     C = Colors(Indx_N, :);
     MEAN = squeeze(mean(Data(:, :, Indx_N), 1, 'omitnan'));
-    plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', HV);
+    plot(MEAN, 'Color', C,  'LineWidth', PlotProps.Line.Width, 'HandleVisibility', 'off');
     for Indx_S = 1:Dims(2) % loop through points in line
         
         if Indx_S == Indx_BL % don't plot marker for reference session
@@ -107,6 +107,7 @@ set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSiz
 xlim([.75, Dims(2)+.25])
 xticks(1:Dims(2))
 xticklabels(xLabels)
+h=gca; h.YAxis.TickLength = [0 0];
 
 
 %%% legend

@@ -26,9 +26,9 @@ else
         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
 
-%     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
-%         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
-%         'electrodes', 'on', 'colormap', Colormap);
+    %     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
+    %         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
+    %         'electrodes', 'on', 'colormap', Colormap);
 end
 
 
@@ -36,7 +36,13 @@ xlim([-.55 .55])
 ylim([-.55 .6])
 set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize)
 A = gca;
-set(A.Children, 'LineWidth', 1)
+set(A.Children, 'LineWidth', PlotProps.External.EEGLAB.Line.Width)
+if PlotProps.External.EEGLAB.MarkerSize/2 < 1
+    A.Children(2).MarkerSize = 1; % make dots really small
+else
+    A.Children(2).MarkerSize = PlotProps.External.EEGLAB.MarkerSize/2;
+end
+A.Children(1).MarkerSize = PlotProps.External.EEGLAB.MarkerSize;
 
 if ~isempty(CLabel)
     h = colorbar;

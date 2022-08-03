@@ -41,7 +41,7 @@ SigStar.Shift = .1;
 %%% EEGLAB-specific properties
 External.EEGLAB.TopoRes = 150; %  image resolution for topoplots
 External.EEGLAB.MarkerSize = 1.5; % size of significant channels
-
+External.EEGLAB.Line.Width = .5;
 
 
 
