@@ -13,7 +13,7 @@ Axes.labelPadding = 15;
 
 %%% Lines
 Line.Width = 2;
-Line.MarkerSize = 7.5;
+Line.MarkerSize = 6;
 Line.Alpha = .3;
 
 %%% Scatter plot
