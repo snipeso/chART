@@ -18,6 +18,7 @@ else
     end
 end
 
+Keep = ~(isnan(Data1)|isnan(Data2));
 
 hold on
 for Indx_G = 1:Dims(2)
@@ -26,13 +27,17 @@ for Indx_G = 1:Dims(2)
         C = Colors(Indx_G, :);
     elseif size(Colors, 1) == Dims(1)
         C = Colors;
+    else
+        C = Colors;
     end
     scatter(Data1(:, Indx_G), Data2(:, Indx_G), ...
         PlotProps.Scatter.Size, C, 'filled', 'MarkerFaceAlpha', .5 )
 
     % get correlation
-    [Stats.r(Indx_G), Stats.pvalue(Indx_G)] = corr(Data1(:, Indx_G), Data2(:, Indx_G));
-
+    [R, P, C1, C2] = corrcoef(Data1(Keep, Indx_G), Data2(Keep, Indx_G));
+    Stats.r(Indx_G) = R(2);
+    Stats.pvalue(Indx_G) = P(2);
+    Stats.CI = [C1(2), C2(2)];
 end
 
 % plot regression lines. For some reason, these are the scattered plots
