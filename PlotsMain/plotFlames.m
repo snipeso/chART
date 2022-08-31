@@ -22,7 +22,7 @@ for Indx_X = 1:numel(xLabels)
             continue
         end
 
-        violin(D, 'x', [Indx_X, 0], 'facecolor', Colors(Indx_P, :), 'edgecolor', [], ...
+        violin(D, 'x', [Indx_X, 0], 'facecolor', Colors(Indx_X, Indx_P, :), 'edgecolor', [], ...
             'facealpha', Alpha, 'mc', [], 'medc', []);
     end
 end
