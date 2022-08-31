@@ -40,7 +40,11 @@ end
 DataRange = get(gca, 'YLim');
 
 YHeight = DataRange(2);
+if isfield(PlotProps, 'SigStar')
 Increase = diff(DataRange)*PlotProps.SigStar.Shift;
+else
+Increase = diff(DataRange)*.05;
+end
 YHeight = YHeight+Increase/2;
 
 % mirror p-values
