@@ -1,4 +1,4 @@
-function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, PlotProps)
+function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, YLims, PlotProps)
 % plotConfettiSpaghetti(Data, Stats, XLabels, Colors, PlotProps)
 %
 % Plots Data (a P x N matrix) such that each P gets its own Color line, and
@@ -78,7 +78,7 @@ end
 
 % plot significance stars on top
 if ~isempty(Stats)
-    plotHangmanStars(Stats, XPoints, [], ColorGroups, PlotProps)
+    plotHangmanStars(Stats, XPoints, YLims, ColorGroups, PlotProps)
 end
 
 

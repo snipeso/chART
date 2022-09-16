@@ -13,9 +13,13 @@ if isempty(Colors)
     Colors = getColors([1, Dims(2)]);
 end
 
+if isempty(xTickLabels)
+    xTickLabels = 1:Dims(1);
+end
+
 hold on
 for Indx_L = 1:Dims(2)
-    bar(1:Dims(1), Data(:, Indx_L), 'FaceColor', Colors(Indx_L, :), ...
+    bar(xTickLabels, Data(:, Indx_L), 'FaceColor', Colors(Indx_L, :), ...
         'FaceAlpha', PlotProps.Patch.Alpha, 'EdgeColor','none')
 end
 
@@ -25,10 +29,10 @@ end
      xlabel(xLabel)
  end
 
- if ~isempty(xTickLabels)
-     xticks(1:Dims(1))
-     xticklabels(xTickLabels)
- end
+%  if ~isempty(xTickLabels)
+%      xticks(1:Dims(1))
+%      xticklabels(xTickLabels)
+%  end
 
  if ~isempty(yLabel)
      ylabel(yLabel)

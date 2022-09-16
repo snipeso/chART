@@ -43,7 +43,9 @@ plotHangmanStars(Stats, 1:Dims(2), YLims, BoxColor, PlotProps)
 h=gca; h.YAxis.TickLength = [0 0];
 xticklabels(XLabels)
 set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize, ...
-    'Units', 'normalized',  'YTickLabel', [], 'YGrid', 'on')
+    'Units', 'normalized', 'YGrid', 'on')
+
+%  'YTickLabel', [],
 
 xlim([.5 Dims(2)+.5])
 box off

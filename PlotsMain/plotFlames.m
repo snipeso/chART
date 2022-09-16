@@ -22,7 +22,7 @@ for Indx_X = 1:numel(xLabels)
             continue
         end
 
-        violin(D, 'x', [Indx_X, 0], 'facecolor', Colors(Indx_X, Indx_P, :), 'edgecolor', [], ...
+        violin(D', 'x', [Indx_X, 0], 'facecolor', squeeze(Colors(Indx_P,  :, Indx_X)), 'edgecolor', 'none', ...
             'facealpha', Alpha, 'mc', [], 'medc', []);
     end
 end
@@ -32,6 +32,10 @@ legend(Legend)
 
 xlim([.5, Indx_X+.5])
 xticks(1:Indx_X)
+
+
+    xticklabels(xLabels)
+
 
 box off
 
