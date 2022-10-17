@@ -7,7 +7,7 @@ Figure.Width = 21;
 Figure.Height = 30;
 Figure.Units = 'centimeters';
 
-Axes.xPadding = 12.5;
+Axes.xPadding = 15;
 Axes.yPadding = Axes.xPadding;
 Axes.labelPadding = 15;
 

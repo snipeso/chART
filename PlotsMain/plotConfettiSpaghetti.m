@@ -20,7 +20,7 @@ function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, YLims, PlotProps)
 
 Dims = size(Data);
 
-if isnumeric(XLabels)
+if ~isempty(XLabels) && isnumeric(XLabels)
     XPoints = XLabels;
 else
 XPoints = 1:Dims(2);
