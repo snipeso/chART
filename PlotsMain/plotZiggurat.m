@@ -23,7 +23,8 @@ for Indx_L = 1:Dims(2)
         'FaceAlpha', PlotProps.Patch.Alpha, 'EdgeColor','none')
 end
 
- set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize)
+
+setAxisProperties(PlotProps)
 
  if ~isempty(xLabel)
      xlabel(xLabel)
