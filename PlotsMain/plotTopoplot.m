@@ -34,7 +34,9 @@ end
 
 xlim([-.55 .55])
 ylim([-.55 .6])
-set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize)
+
+setAxisProperties(PlotProps)
+
 A = gca;
 set(A.Children, 'LineWidth', PlotProps.External.EEGLAB.Line.Width)
 if PlotProps.External.EEGLAB.MarkerSize/2 < 1
