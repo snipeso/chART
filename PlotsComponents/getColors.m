@@ -50,12 +50,12 @@ switch N(1)
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive];
     case 9
-           MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
+        MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive; AllColors.pink];
 
     case 10
-  MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
+        MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive; AllColors.pink; AllColors.black];
 
@@ -87,19 +87,20 @@ elseif numel(N) == 2
         75, 125, 175, 225, nan;
         40, 100, 150, 200, 240;
         ]; % all the possible luminance jumps to make sure that they're nice when few
-    
+
     if N(2) <= 5
         Lum = Lum(N(2), :);
         Lum(isnan(Lum)) = [];
     else
-        Lum = linspace(40, 240, N(2));
+        Lum = linspace(40, 225, N(2));
     end
-    
+
     Lum = Lum/255;
-    
+
     hsl_Colors =rgb2hsl(MainColors);
     all_hsl_Colors = repmat(hsl_Colors, 1, 1, N(2));
     all_hsl_Colors(:, 3, :) =  repmat(Lum, N(1), 1);
+
     if N(1) == 1
         all_hsl_Colors = permute(all_hsl_Colors, [3, 2, 1]);
         Colors = hsl2rgb(all_hsl_Colors);
