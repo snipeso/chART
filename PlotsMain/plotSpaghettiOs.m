@@ -103,7 +103,9 @@ for Indx_N = 1:Dims(3) % loop through lines
     end
 end
 
-set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize, 'YGrid', 'on')
+set(gca, 'YGrid', 'on')
+setAxisProperties(PlotProps)
+
 xlim([.75, Dims(2)+.25])
 xticks(1:Dims(2))
 xticklabels(xLabels)
@@ -111,7 +113,7 @@ h=gca; h.YAxis.TickLength = [0 0];
 
 
 %%% legend
-legend(Legend ,'Location','northwest')
+legend(Legend, 'Location','northwest')
 if ~any(Marked) % removes empty box
     legend off
 end
