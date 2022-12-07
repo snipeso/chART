@@ -32,4 +32,4 @@ for Indx_S = 1:Dims(1)
          'LineWidth', PlotProps.Line.Width*2, 'HandleVisibility', HV)
 end
 
-set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize)
+setAxisProperties(PlotProps)

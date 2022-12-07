@@ -22,8 +22,15 @@ for Indx_X = 1:numel(xLabels)
             continue
         end
 
-        violin(D', 'x', [Indx_X, 0], 'facecolor', squeeze(Colors(Indx_P,  :, Indx_X)), 'edgecolor', 'none', ...
+        if numel(size(Colors)) ==3
+        Color = squeeze(Colors(Indx_P,  :, Indx_X));
+        else
+            Color = Colors(Indx_P,  :);
+        end
+
+        violin(D(:), 'x', [Indx_X, 0], 'facecolor', Color, 'edgecolor', 'none', ...
             'facealpha', Alpha, 'mc', [], 'medc', []);
+        %NB: error might be because array is not in correct orientation
     end
 end
 
@@ -34,9 +41,9 @@ xlim([.5, Indx_X+.5])
 xticks(1:Indx_X)
 
 
+
     xticklabels(xLabels)
 
 
 box off
-
-set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize)
+setAxisProperties(PlotProps)
