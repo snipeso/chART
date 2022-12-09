@@ -10,12 +10,12 @@ IndividualTransparency = 0.3;
 % plot individidual's data, color-coded by category
 hold on
 
-if size(Colors, 1) == Dims(2)
+if size(Colors, 1) == Dims(2) % just plot all individuals and average
     for Indx_C = 1:Dims(2)
         plot(X, squeeze(Data(:, Indx_C, :))', 'LineWidth',PlotProps.Line.Width/3, ...
             'Color', [Colors(Indx_C, :), 0.1], 'HandleVisibility','off')
     end
-elseif size(Colors, 1) == Dims(1) && Dims(2)==2
+elseif size(Colors, 1) == Dims(1) && Dims(2)==2 % plot a baseline in one color, and the special event showing individuals
 
     % plot first group in gray
     plot(X, squeeze(Data(:, 1, :))', 'LineWidth',PlotProps.Line.Width/3, ...
@@ -29,12 +29,17 @@ elseif size(Colors, 1) == Dims(1) && Dims(2)==2
     end
     Colors(1, :) = [0 0 0];
     Colors(2, :) = [0 0 0]; % hack, so average is black
-elseif size(Colors, 1) == Dims(1)
-     for Indx_P = 1:Dims(1)
-        plot(X, squeeze(Data(Indx_P, :))', 'LineWidth',PlotProps.Line.Width/3, ...
+
+elseif  size(Colors, 1) == Dims(1) && Dims(2)>2 % plot last group in colors, the others as averages
+
+     % second group in color
+    for Indx_P = 1:Dims(1)
+        plot(X, squeeze(Data(Indx_P, Dims(2), :))', 'LineWidth',PlotProps.Line.Width/4, ...
             'Color', [Colors(Indx_P, :), IndividualTransparency], 'HandleVisibility','off')
-     end
-     Dims(2) = 1;
+    end
+
+    Colors(1:Dims(2), :) = flip(getColors([1 Dims(2)], '', 'black'));
+    Colors(Dims(2), :) = [0 0 0];
 else
     error('wrong colors')
 end

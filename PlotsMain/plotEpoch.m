@@ -69,7 +69,7 @@ for Indx_Ch = 1:DimsD(1)
         Color = [0 0 0];
         LW = .5;
     else
-        Color = [.3 .3 .3];
+        Color = PlotProps.Color.Generic;
         LW = .5;
     end
     
