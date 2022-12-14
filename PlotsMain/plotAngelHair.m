@@ -27,7 +27,7 @@ elseif size(Colors, 1) == Dims(1) && Dims(2)==2 % plot a baseline in one color, 
         plot(X, squeeze(Data(Indx_P, 2, :))', 'LineWidth',PlotProps.Line.Width/3, ...
             'Color', [Colors(Indx_P, :), IndividualTransparency], 'HandleVisibility','off')
     end
-    Colors(1, :) = GenericColor;
+    Colors(1, :) = [0 0 0];
     Colors(2, :) = [0 0 0]; % hack, so average is black
 
 elseif  size(Colors, 1) == Dims(1) && Dims(2)>2 % plot last group in colors, the others as averages
@@ -45,12 +45,21 @@ else
 end
 
 % plot means
+if Dims(2)>1
 for Indx_C = 1:Dims(2)
     plot(X, squeeze(mean(Data(:, Indx_C, :), 1, 'omitnan'))', 'LineWidth',PlotProps.Line.Width, ...
         'Color', Colors(Indx_C, :), 'HandleVisibility','on')
 end
+else
+
+    plot(X, squeeze(mean(Data, 1, 'omitnan'))', 'LineWidth',PlotProps.Line.Width, ...
+        'Color', [0 0 0], 'HandleVisibility','on')
+end
 axis tight
 padAxis('y', 0.05)
 
+if ~isempty(Legend)
 legend(Legend)
-set(gca, 'FontSize', PlotProps.Text.AxisSize, 'FontName', PlotProps.Text.FontName)
+end
+
+setAxisProperties(PlotProps)
