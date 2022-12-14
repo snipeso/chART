@@ -38,7 +38,9 @@ set(findobj(gca,'Marker','none'),'Marker','.')
 set(findobj(gca,'Tag','Outliers'),'Marker','none')
 
 %%% plot pairwise significances
-plotHangmanStars(Stats, 1:Dims(2), YLims, BoxColor, PlotProps)
+if ~isempty(Stats)
+    plotHangmanStars(Stats, 1:Dims(2), YLims, BoxColor, PlotProps)
+end
 
 h=gca; h.YAxis.TickLength = [0 0];
 xticklabels(XLabels)
