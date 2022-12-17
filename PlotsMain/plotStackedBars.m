@@ -10,6 +10,7 @@ end
 
 if ~isempty(Legend)
     legend(Legend)
+    set(legend, 'ItemTokenSize', [5 5], 'location', 'northeast')
 end
 
 for Indx_B =1:numel(B)
