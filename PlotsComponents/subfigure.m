@@ -31,12 +31,6 @@ set(gcf, 'units', 'pixels')
 FigSpace = get(gcf, 'position');
 FigSpace = [FigSpace([1, 2]) + PaddingExterior, FigSpace([3, 4]) - PaddingExterior*2];
 
-if isempty(Space)
-    Space = FigSpace;
-    FontSize = PlotProps.Text.IndexSize;
-else
-    FontSize = PlotProps.Text.TitleSize;
-end
 
 if isempty(Size)
     Size = [1 1];
@@ -44,8 +38,16 @@ end
 
 if LabelSpace
     PaddingLabels = PlotProps.Axes.labelPadding;
+    FigSpace(1) = FigSpace(1)+PlotProps.Axes.labelPadding;
 else
     PaddingLabels = 0;
+end
+
+if isempty(Space)
+    Space = FigSpace;
+    FontSize = PlotProps.Text.IndexSize;
+else
+    FontSize = PlotProps.Text.TitleSize;
 end
 
 % set up padding
