@@ -7,6 +7,12 @@ Dims = size(Data);
 GenericColor = [0.7 0.7 0.7];
 IndividualTransparency = 0.3;
 
+if isfield(PlotProps, 'HandleVisibility')
+    HV = PlotProps.HandleVisibility;
+else
+    HV = 'on';
+end
+
 % plot individidual's data, color-coded by category
 hold on
 
@@ -48,12 +54,12 @@ end
 if Dims(2)>1
 for Indx_C = 1:Dims(2)
     plot(X, squeeze(mean(Data(:, Indx_C, :), 1, 'omitnan'))', 'LineWidth',PlotProps.Line.Width, ...
-        'Color', Colors(Indx_C, :), 'HandleVisibility','on')
+        'Color', Colors(Indx_C, :), 'HandleVisibility', HV)
 end
 else
 
     plot(X, squeeze(mean(Data, 1, 'omitnan'))', 'LineWidth',PlotProps.Line.Width, ...
-        'Color', [0 0 0], 'HandleVisibility','on')
+        'Color', [0 0 0], 'HandleVisibility', HV)
 end
 axis tight
 padAxis('y', 0.05)
