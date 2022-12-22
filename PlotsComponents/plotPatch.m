@@ -1,4 +1,4 @@
-function plotPatch(D1, D2, X, Direction, Color, Alpha, LW)
+function plotPatch(D1, D2, X, Direction, Color, Alpha, LW, HV)
 % plots a patch of either the increase or decrease between 2 conditions.
 % Data is a 2 x F matrix. Direction is either 'pos' or 'neg'. xLog is true
 % or false.
@@ -26,12 +26,12 @@ for Indx_P = 1:numel(Starts)
     y2 = D2(Starts(Indx_P):Ends(Indx_P));
     
     if Indx_P ==1
-        HV = 'on';
+        HV_2 = HV;
     else
-        HV = 'off';
+        HV_2 = 'off';
     end
         patch([x fliplr(x)], [y1 fliplr(y2)], Color, 'FaceAlpha',Alpha, ...
-            'EdgeColor', 'none', 'HandleVisibility', HV)
+            'EdgeColor', 'none', 'HandleVisibility', HV_2)
 end
 hold off
 
