@@ -12,5 +12,5 @@ end
 
 
 h.TickLength = 0;
-axis off
 colormap(reduxColormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap)))
+axis off
