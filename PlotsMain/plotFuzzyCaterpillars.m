@@ -3,7 +3,7 @@ function plotFuzzyCaterpillars(Data, CI, X, CI_Distance, Highlights, Colors, Plo
 % significant differences from baseline in power spectrum data.
 % Data is an S x F matrix. Each S is a line.
 % X is 1 x F array.
-%CI is a 2 x S x F
+% CI is a 2 x S x F
 % Highlights is a S x F matrix of 1s and 0s; such that 1s will be
 % highlighted.
 % Colors is S x 3 colors in RGB.
