@@ -7,4 +7,4 @@ function saveFig(Title, Destination, PlotProps)
 set(gcf, 'InvertHardcopy', 'off', 'Color', PlotProps.Color.Background)
 
 saveas(gcf, fullfile(Destination, [Title, '.svg']));
-print( fullfile(Destination, Title), '-dtiff', '-r900')
+print( fullfile(Destination, Title), '-dtiff', '-r1000')
