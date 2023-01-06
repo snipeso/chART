@@ -25,6 +25,8 @@ for Indx_P = 1:Dims(1)
 end
 
 % plot mean
-Data1 = nanmean(Data1, 1);
-Data2 = nanmean(Data2, 1);
+if Dims(1)~=1
+Data1 = mean(Data1, 1, 'omitnan');
+Data2 = mean(Data2, 1, 'omitnan');
 plotPatch(Data1, Data2, X, Direction, 'k', .4, PlotProps.Line.Width/2, 'on')
+end
