@@ -33,7 +33,7 @@ elseif size(Colors, 1) == Dims(1) && Dims(2)==2 % plot a baseline in one color, 
         plot(X, squeeze(Data(Indx_P, 2, :))', 'LineWidth',PlotProps.Line.Width/3, ...
             'Color', [Colors(Indx_P, :), IndividualTransparency], 'HandleVisibility','off')
     end
-    Colors(1, :) = [0 0 0];
+    Colors(1, :) = [0.5 0.5 0.5];
     Colors(2, :) = [0 0 0]; % hack, so average is black
 
 elseif  size(Colors, 1) == Dims(1) && Dims(2)>2 % plot last group in colors, the others as averages

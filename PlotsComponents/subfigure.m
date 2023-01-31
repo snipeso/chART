@@ -88,7 +88,7 @@ set(gca, 'Units', 'normalized')
 
 %%% Debugging stuff
 % % % %
-% % figure padding
+% figure padding
 % Box = annotation('rectangle', [0 0 0 0], 'Color', 'red', 'Units', 'pixels');
 % Box.Position = FigSpace;
 % 
