@@ -77,8 +77,9 @@ for Indx_G = 1:size(MEANS, 1)
 end
 
 % plot significance stars on top
-if ~isempty(Stats)
+if ~isempty(Stats) && numel(Stats)==1
     plotHangmanStars(Stats, XPoints, YLims, ColorGroups, PlotProps)
+elseif ~isempty(Stats) && numel(Stats)>1 
 end
 
 

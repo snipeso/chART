@@ -62,6 +62,7 @@ if ~isempty(Legend)
     end
     
     legend(Legend(LegendOrder), 'location', LegendPosition)
+    set(legend, 'ItemTokenSize', [10 10])
 end
 
 
