@@ -7,6 +7,12 @@ Dims = size(Data);
 GenericColor = [0.7 0.7 0.7];
 IndividualTransparency = 0.3;
 
+if isfield(PlotProps, 'HandleVisibility')
+    HV = PlotProps.HandleVisibility;
+else
+    HV = 'on';
+end
+
 % plot individidual's data, color-coded by category
 hold on
 
@@ -27,7 +33,7 @@ elseif size(Colors, 1) == Dims(1) && Dims(2)==2 % plot a baseline in one color, 
         plot(X, squeeze(Data(Indx_P, 2, :))', 'LineWidth',PlotProps.Line.Width/3, ...
             'Color', [Colors(Indx_P, :), IndividualTransparency], 'HandleVisibility','off')
     end
-    Colors(1, :) = [0 0 0];
+    Colors(1, :) = [0.5 0.5 0.5];
     Colors(2, :) = [0 0 0]; % hack, so average is black
 
 elseif  size(Colors, 1) == Dims(1) && Dims(2)>2 % plot last group in colors, the others as averages
@@ -48,12 +54,12 @@ end
 if Dims(2)>1
 for Indx_C = 1:Dims(2)
     plot(X, squeeze(mean(Data(:, Indx_C, :), 1, 'omitnan'))', 'LineWidth',PlotProps.Line.Width, ...
-        'Color', Colors(Indx_C, :), 'HandleVisibility','on')
+        'Color', Colors(Indx_C, :), 'HandleVisibility', HV)
 end
 else
 
     plot(X, squeeze(mean(Data, 1, 'omitnan'))', 'LineWidth',PlotProps.Line.Width, ...
-        'Color', [0 0 0], 'HandleVisibility','on')
+        'Color', [0 0 0], 'HandleVisibility', HV)
 end
 axis tight
 padAxis('y', 0.05)
