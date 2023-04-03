@@ -4,11 +4,15 @@ function plotSpikeBalls(Data, XTickLabels, Legend, Colors, ErrorType, PlotProps)
 
 Dims = size(Data);
 
+if numel(Dims)<3
+    Dims(3) = 1;
+end
+
 X = 1:Dims(2);
 
 if ~isempty(XTickLabels)
-    xtick(X)
-    XTickLabels(XTickLabels)
+    xticks(X)
+    xticklabels(XTickLabels)
 end
 
 hold on
