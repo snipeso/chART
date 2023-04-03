@@ -19,6 +19,7 @@ for Indx_P = 1:Dims(1)
         HV = HandleVisibility;
     end
     
+%     figure
     hold on
     plotPatch(Data1(Indx_P, :), Data2(Indx_P, :), X, Direction, Colors(Indx_P, :), ...
         PlotProps.Patch.Alpha, PlotProps.Line.Width/4, HV) % little numbers are alpha and linewidth
