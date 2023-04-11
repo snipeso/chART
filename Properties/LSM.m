@@ -78,7 +78,7 @@ Color.Participants = [
 %%% Statistics Limits
 Stats.Alpha = .05;
 Stats.Trend = .1;
-
+Stats.PlotN = false;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% External

@@ -1,4 +1,4 @@
-function plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, Colormap, PlotProps)
+function plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, ColormapName, PlotProps)
 % plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, Colormap, PlotProps)
 
 % pretty way of using EEGLAB's topoplot function. This is not my own plot.
@@ -11,12 +11,15 @@ function plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, Colormap, PlotProps)
 
 if numel(CLims) ~= 2
     CLims = 'minmax';
+    SetCLims = true;
+else
+    SetCLims = false;
 end
 
 Indexes = 1:numel(Chanlocs);
 
 Chanlocs = shiftTopoChannels(Chanlocs, .06, 'y'); % little adjustment to center the chanlocs better
-Colormap = reduxColormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap));
+Colormap = reduxColormap(PlotProps.Color.Maps.(ColormapName), PlotProps.Color.Steps.(ColormapName));
 
 if isempty(Stats)
     topoplot(Data, Chanlocs, 'style', 'map', 'headrad', 'rim', 'whitebk', 'on', ...
@@ -51,5 +54,12 @@ if ~isempty(CLabel)
     h.TickLength = 0;
     ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize) % text style needs to be specified for label, because its weird
 end
+
+if SetCLims && strcmp(ColormapName, 'Divergent')
+    CLims = clim;
+    CLims = [-abs(max(CLims)), abs(max(CLims))];
+    clim(CLims)
+end
+
 
 set(gca, 'Colormap', Colormap)
