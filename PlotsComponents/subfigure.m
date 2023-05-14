@@ -71,13 +71,13 @@ Height = axisHeight*Size(1)-yPadding*2-PaddingLabels;
 % set up axes
 Position = [Left, Bottom, Width, Height];
 
-%%% Real script
 Axes = axes('Units', 'pixels', 'Position', Position);
 
+% plot index letter/number
 if ~isempty(Letter)
     Txt = annotation('textbox', [0 0 0 0], 'string', Letter, 'Units', 'pixels', ...
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
-    Txt.Position =  [X(CornerLocation(2))-2*FontSize+xPadding, ...
+    Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, ...
         Y(CornerLocation(1)-Size(1)+1) 0 0];
     Txt.Units = 'normalized';
 end
