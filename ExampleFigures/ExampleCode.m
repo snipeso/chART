@@ -1,5 +1,5 @@
 
-PlotProps = getProperties('Powerpoint');
+PlotProps = load_plot_properties('Powerpoint');
 Destination = 'C:\Users\colas\Projects\chART\ExampleFigures';
 
 %% plotConfettiSpaghetti
