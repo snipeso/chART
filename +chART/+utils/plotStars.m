@@ -21,7 +21,7 @@ end
 
 for Indx_S = 1:numel(pValues)
     P = pValues(Indx_S);
-    Symbol = getSigSymbol(P);
+    Symbol = chART.utils.significance_symbol(P);
     if strcmp(Symbol, ' ')
         Symbol = '~';
     end
