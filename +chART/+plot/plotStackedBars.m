@@ -24,4 +24,4 @@ if ~isempty(YLim)
     ylim(YLim)
 end
 
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)

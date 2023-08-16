@@ -32,9 +32,9 @@ Text.IndexSize = 30; % size of number in top left corner, largest possible text
 
 
 %%% Colormaps
-Color.Maps.Linear =  flip(colorcet('L17'));
-Color.Maps.Monochrome = colorcet('L2');
-Color.Maps.Divergent =  colorcet('D1A');
+Color.Maps.Linear =  flip(external.colorcet('L17'));
+Color.Maps.Monochrome = external.colorcet('L2');
+Color.Maps.Divergent =  external.colorcet('D1A');
 Color.Maps.Rainbow = chART.utils.chART.utils.rainbow;
 
 Color.Steps.Linear = 20;

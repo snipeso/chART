@@ -32,4 +32,4 @@ for Indx_S = 1:Dims(1)
          'LineWidth', PlotProps.Line.Width*2, 'HandleVisibility', HV)
 end
 
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)

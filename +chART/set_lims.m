@@ -1,8 +1,8 @@
 function NewLims = set_lims(Dim1, Dim2, Axis)
-% NewLims = chART.utils.set_lims(Dim1, Dim2, Axis)
+% NewLims = chART.set_lims(Dim1, Dim2, Axis)
 %
 % function to set all subplots to the same values.
-% Dim1 and 2 indicate the chART.utils.sub_plot grid, and Axis is a string ('x', 'y', 'c')
+% Dim1 and 2 indicate the chART.sub_plot grid, and Axis is a string ('x', 'y', 'c')
 
 Tot = Dim1*Dim2;
 

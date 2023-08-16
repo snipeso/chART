@@ -25,7 +25,7 @@ else
 end
 
 if isempty(Colors)
-   Colors = chART.utils.color_picker(Dims(3)); 
+   Colors = chART.color_picker(Dims(3)); 
 end
 
 % terms for significant dots
@@ -104,7 +104,7 @@ for Indx_N = 1:Dims(3) % loop through lines
 end
 
 set(gca, 'YGrid', 'on')
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)
 
 xlim([.75, Dims(2)+.25])
 xticks(1:Dims(2))

@@ -11,7 +11,7 @@ plotConfettiSpaghetti(Data, Stats, nLabels, [], PlotProps)
 Title = 'plotConfettiSpaghetti()';
 title(Title, 'FontSize', PlotProps.Text.TitleSize)
 
-saveFig(Title, Destination, PlotProps)
+chART.utils.save_figure(Title, Destination, PlotProps)
 
 %% plotSpaghettiOs
 
@@ -23,7 +23,7 @@ chART.utils.pad_axis('y', .05)
 Title = 'plotSpahettiOs()';
 title(Title, 'FontSize', PlotProps.Text.TitleSize)
 
-saveFig(Title, Destination, PlotProps)
+chART.utils.save_figure(Title, Destination, PlotProps)
 
 %% plotBubbles
 
@@ -37,4 +37,4 @@ plotBubbles(Stats.t, Chanlocs, 'rad', Sizes, {}, PlotProps)
 Title = 'plotBubbles()';
 title(Title, 'FontSize', PlotProps.Text.TitleSize)
 
-saveFig(Title, Destination, PlotProps)
+chART.utils.save_figure(Title, Destination, PlotProps)

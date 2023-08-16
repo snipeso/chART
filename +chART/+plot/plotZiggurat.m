@@ -10,7 +10,7 @@ Dims = size(Data);
 
 
 if isempty(Colors)
-    Colors = chART.utils.color_picker([1, Dims(2)]);
+    Colors = chART.color_picker([1, Dims(2)]);
 end
 
 if isempty(xTickLabels)
@@ -24,7 +24,7 @@ for Indx_L = 1:Dims(2)
 end
 
 
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)
 
  if ~isempty(xLabel)
      xlabel(xLabel)

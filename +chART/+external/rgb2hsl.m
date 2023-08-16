@@ -1,13 +1,13 @@
-function hsl=rgb2hsl(rgb_in)
+function hsl=external.rgb2hsl(rgb_in)
 %Converts Red-Green-Blue Color value to Hue-Saturation-Luminance Color value
 %
 %Usage
-%       HSL = rgb2hsl(RGB)
+%       HSL = external.rgb2hsl(RGB)
 %
 %   converts RGB, a M [x N] x 3 color matrix with values between 0 and 1
 %   into HSL, a M [x N] X 3 color matrix with values between 0 and 1
 %
-%See also hsl2rgb, rgb2hsv, hsv2rgb
+%See also external.hsl2rgb, rgb2hsv, hsv2rgb
 
 % (C) Vladimir Bychkovsky, June 2008
 % written using: 

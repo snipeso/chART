@@ -38,7 +38,7 @@ end
 xlim([-.55 .55])
 ylim([-.55 .6])
 
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)
 
 A = gca;
 set(A.Children, 'LineWidth', PlotProps.External.EEGLAB.Line.Width)

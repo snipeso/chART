@@ -1,5 +1,5 @@
 function plotFlames(DataStruct, Colors, Alpha, PlotProps)
-% plots overlapping translucent violin plots.
+% plots overlapping translucent external.violin plots.
 % DataStruct is a recursive structure, where the first set of fields holds
 % data for each x mark, and the second subset holds all the values that
 % need to be distributed.
@@ -28,7 +28,7 @@ for Indx_X = 1:numel(xLabels)
             Color = Colors(Indx_P,  :);
         end
 
-        violin(D(:), 'x', [Indx_X, 0], 'facecolor', Color, 'edgecolor', 'none', ...
+        external.violin(D(:), 'x', [Indx_X, 0], 'facecolor', Color, 'edgecolor', 'none', ...
             'facealpha', Alpha, 'mc', [], 'medc', []);
         %NB: error might be because array is not in correct orientation
     end
@@ -46,4 +46,4 @@ xticks(1:Indx_X)
 
 
 box off
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)

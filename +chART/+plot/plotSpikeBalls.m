@@ -44,7 +44,7 @@ for Indx_N = 1:Dims(3)
     end
 end
 
-setAxisProperties(PlotProps)
+chART.set_axis_properties(PlotProps)
 
 if ~isempty(Legend)
     legend(Legend)
