@@ -16,7 +16,7 @@ Text.FontName = 'TW Cen MT';
 Color.Maps.Linear =  flip(colorcet('L17'));
 Color.Maps.Monochrome = colorcet('L2');
 Color.Maps.Divergent = colorcet('D1A');
-Color.Maps.Rainbow = unirainbow;
+Color.Maps.Rainbow = chART.utils.unirainbow;
 % Color.Maps.Rainbow = colorcet('R2');
 
 Color.Steps.Linear = 20;
@@ -39,17 +39,17 @@ Indexes.Numerals = {'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
 
 % task colors
 AllTasks = {'Match2Sample', 'LAT', 'PVT', 'SpFT', 'Game', 'Music'};
-Color.AllTasks = getColors(6, 'rainbow');
+Color.AllTasks = chART.utils.color_picker(6, 'rainbow');
 for Indx_T = 1:numel(AllTasks)
     Color.Tasks.(AllTasks{Indx_T}) = Color.AllTasks(Indx_T, :);
 end
 
 % colors for levels in M2S task
-Color.Levels = flip(getColors([1 3], 'rainbow', 'red')); % M2S red
-Color.spEpochs = getColors([1 2], 'rainbow', 'green'); % speech green
+Color.Levels = flip(chART.utils.color_picker([1 3], 'rainbow', 'red')); % M2S red
+Color.spEpochs = chART.utils.color_picker([1 2], 'rainbow', 'green'); % speech green
 
 % colors + shades for all the tasks
-Color.Sessions = getColors([numel(AllTasks), 3], 'rainbow');
+Color.Sessions = chART.utils.color_picker([numel(AllTasks), 3], 'rainbow');
 
 % Participants colors
 Color.Participants = [

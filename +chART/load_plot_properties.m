@@ -11,7 +11,7 @@ chART.properties.Template
 
 % Run selected, so it overwrites whatever it has
 for PropertyType = PropertyTypes(:)'
-    chART.properties.(PropertyType)
+    chART.properties.(PropertyType{1})
 end
 
 

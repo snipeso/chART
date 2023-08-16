@@ -25,7 +25,7 @@ else
 end
 
 if isempty(Colors)
-   Colors = getColors(Dims(3)); 
+   Colors = chART.utils.color_picker(Dims(3)); 
 end
 
 % terms for significant dots

@@ -44,7 +44,7 @@ elseif  size(Colors, 1) == Dims(1) && Dims(2)>2 % plot last group in colors, the
             'Color', [Colors(Indx_P, :), IndividualTransparency], 'HandleVisibility','off')
     end
 
-    Colors(1:Dims(2), :) = flip(getColors([1 Dims(2)], '', 'black'));
+    Colors(1:Dims(2), :) = flip(chART.utils.color_picker([1 Dims(2)], '', 'black'));
     Colors(Dims(2), :) = [0 0 0];
 else
     error('wrong colors')

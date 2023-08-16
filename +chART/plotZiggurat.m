@@ -10,7 +10,7 @@ Dims = size(Data);
 
 
 if isempty(Colors)
-    Colors = getColors([1, Dims(2)]);
+    Colors = chART.utils.color_picker([1, Dims(2)]);
 end
 
 if isempty(xTickLabels)

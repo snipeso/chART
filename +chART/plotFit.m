@@ -12,7 +12,7 @@ Plt(1).MarkerSize = PlotProps.Line.MarkerSize;
 if ~isempty(Color)
     Plt(2).Color = Color;
 else
-    Plt(2).Color = getColors(1);
+    Plt(2).Color = chART.utils.color_picker(1);
 end
 
 Plt(2).LineWidth = PlotProps.Line.Width;
