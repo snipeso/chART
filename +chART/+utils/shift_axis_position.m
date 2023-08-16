@@ -1,4 +1,4 @@
-function shiftaxis(Axis, X, Y)
+function shift_axis_position(Axis, X, Y)
 % little script for shifting axes to adjust for weird figures.
 % X and Y are in pixels, and the new axes will be centered in the same
 % spot, but now larger.

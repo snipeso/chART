@@ -19,7 +19,7 @@ load('PxNxM.mat', 'Data', 'nLabels', 'Stats')
 
 figure('units','centimeters','position',[0 0 PlotProps.Figure.Width*.2 PlotProps.Figure.Height*.5])
 plotSpaghettiOs(Data, Stats, 1, mLabels, {}, [], PlotProps)
-padAxis('y', .05)
+chART.utils.pad_axis('y', .05)
 Title = 'plotSpahettiOs()';
 title(Title, 'FontSize', PlotProps.Text.TitleSize)
 

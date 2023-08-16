@@ -62,7 +62,7 @@ else
         'Color', [0 0 0], 'HandleVisibility', HV)
 end
 axis tight
-padAxis('y', 0.05)
+chART.utils.pad_axis('y', 0.05)
 
 if ~isempty(Legend)
 legend(Legend)

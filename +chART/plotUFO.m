@@ -32,8 +32,8 @@ for Indx_N = 1:Dims(2)
     % determine if colors provided come from m or n dimention, and choose
     % appropriately
     if size(Colors, 1) == Dims(1)
-        Color = makePale(Colors, Paleness(Indx_N)); % make it paler for each n
-        GenericColor =  makePale(PlotProps.Color.Generic, Paleness(Indx_N)); % make it paler for each n
+        Color = chART.utils.pale_colors(Colors, Paleness(Indx_N)); % make it paler for each n
+        GenericColor =  chART.utils.pale_colors(PlotProps.Color.Generic, Paleness(Indx_N)); % make it paler for each n
     elseif size(Colors, 1) == Dims(2)
         Color = repmat(Colors(Indx_N, :), Dims(1), 1);
     end
@@ -72,8 +72,8 @@ xticklabels(flip(XLabels))
 
 
 ylim([min(CI(:)),  max(CI(:))])
-padAxis('x')
-padAxis('y')
+chART.utils.pad_axis('x')
+chART.utils.pad_axis('y')
 
 if ~isempty(CLabels)
     legend(CLabels, 'Location', 'northwest')

@@ -28,7 +28,7 @@ end
 
 % assign rainbow colors if none are provided
 if isempty(Colors)
-    Colors = reduxColormap(PlotProps.Color.Maps.Rainbow, Dims(1));
+    Colors = chART.utils.resize_colormap(PlotProps.Color.Maps.Rainbow, Dims(1));
 end
 
 

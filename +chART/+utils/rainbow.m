@@ -1,4 +1,4 @@
-function cm_data = unirainbow(m)
+function cm_data = rainbow(m)
 
 
 cm = [

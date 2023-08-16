@@ -18,8 +18,8 @@ end
 
 Indexes = 1:numel(Chanlocs);
 
-Chanlocs = shiftTopoChannels(Chanlocs, .06, 'y'); % little adjustment to center the chanlocs better
-Colormap = reduxColormap(PlotProps.Color.Maps.(ColormapName), PlotProps.Color.Steps.(ColormapName));
+Chanlocs = chART.utils.shift_channel_locations(Chanlocs, .06, 'y'); % little adjustment to center the chanlocs better
+Colormap = chART.utils.resize_colormap(PlotProps.Color.Maps.(ColormapName), PlotProps.Color.Steps.(ColormapName));
 
 if isempty(Stats)
     topoplot(Data, Chanlocs, 'style', 'map', 'headrad', 'rim', 'whitebk', 'on', ...

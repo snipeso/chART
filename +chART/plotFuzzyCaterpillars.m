@@ -10,7 +10,7 @@ function plotFuzzyCaterpillars(Data, CI, X, CI_Distance, Highlights, Colors, Plo
 
 Dims = size(Data);
 
-PaleColors = makePale(Colors, .4);
+PaleColors = chART.utils.pale_colors(Colors, .4);
 
 X_Jumps = 1:CI_Distance:Dims(2);
 

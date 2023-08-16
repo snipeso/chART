@@ -16,7 +16,7 @@ Text.FontName = 'TW Cen MT';
 Color.Maps.Linear =  flip(colorcet('L17'));
 Color.Maps.Monochrome = colorcet('L2');
 Color.Maps.Divergent = colorcet('D1A');
-Color.Maps.Rainbow = chART.utils.unirainbow;
+Color.Maps.Rainbow = chART.utils.chART.utils.rainbow;
 % Color.Maps.Rainbow = colorcet('R2');
 
 Color.Steps.Linear = 20;
@@ -72,7 +72,7 @@ Color.Participants = [
     229, 105, 179;
     225, 77, 140
     ]/255;
-% Color.Participants = reduxColormap(Color.Maps.Rainbow, 18);
+% Color.Participants = chART.utils.resize_colormap(Color.Maps.Rainbow, 18);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Statistics Limits

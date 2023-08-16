@@ -1,5 +1,5 @@
-function padAxis(Axis, Prcnt)
-% padAxis(Axis, Prcnt)
+function pad_axis(Axis, Prcnt)
+% chART.utils.pad_axis(Axis, Prcnt)
 %
 % adds a little padding to current axis as a percentage of whatever it is.
 % Axis is a string ('x', 'y', 'c')

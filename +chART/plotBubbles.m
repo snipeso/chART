@@ -47,8 +47,8 @@ switch Type
         axis square
         xlim([min(x) max(x)])
         ylim([min(y) max(y)])
-        padAxis('x')
-        padAxis('y')
+        chART.utils.pad_axis('x')
+        chART.utils.pad_axis('y')
         
     case 'cart'
         
@@ -83,7 +83,7 @@ Dims = size(Data);
 
 if Dims(2) ~=3 % if not a color triplet
     Colormap = PlotProps.Color.Maps.Linear;
-    Colormap = reduxColormap(Colormap, PlotProps.Color.Steps.Linear);
+    Colormap = chART.utils.resize_colormap(Colormap, PlotProps.Color.Steps.Linear);
     colormap(Colormap)
     colorbar
 end

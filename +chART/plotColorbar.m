@@ -34,5 +34,5 @@ end
 
 
 h.TickLength = 0;
-colormap(reduxColormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap)))
+colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap)))
 axis off
