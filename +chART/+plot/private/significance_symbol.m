@@ -1,4 +1,4 @@
-function Symbol = chART.utils.significance_symbol(P)
+function Symbol = significance_symbol(P)
 % identify symbol to plot for significance stars. P is a p value.
 
 if P < .1 && P > .05

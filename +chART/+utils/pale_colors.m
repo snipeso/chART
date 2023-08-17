@@ -1,4 +1,4 @@
-function Color = chART.utils.pale_colors(Color, Prcnt)
+function Color = pale_colors(Color, Prcnt)
 % make color as pale as indicated in Prcnt. If color is 1 x 3, then it
 % makes as many pale colors as indicated in Prcnt. If color is n x 3, Prcnt
 % can either be n x 1 or 1 value.

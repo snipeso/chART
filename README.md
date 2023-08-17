@@ -11,4 +11,4 @@ Plots should have consistent formatting, so every plotting function takes as a f
 
 ## External references
 
-- external.colorcet
+- colorcet

@@ -1,4 +1,4 @@
-function hsl=external.rgb2hsl(rgb_in)
+function hsl= rgb2hsl(rgb_in)
 %Converts Red-Green-Blue Color value to Hue-Saturation-Luminance Color value
 %
 %Usage

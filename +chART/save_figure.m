@@ -1,4 +1,4 @@
-function saveFig(Title, Destination, PlotProps)
+function save_figure(Title, Destination, PlotProps)
 % little script for saving figures, so I can change things all together if
 % I want
 

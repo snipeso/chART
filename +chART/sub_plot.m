@@ -1,4 +1,4 @@
-function Axes = subfigure(Space, Grid, CornerLocation, Size, LabelSpace, Letter, PlotProps)
+function Axes = sub_plot(Space, Grid, CornerLocation, Size, LabelSpace, Letter, PlotProps)
 %  subfigure(Space, Grid, Location, Letter, Format)
 % Instead of subplot, this lets you place a subfigure anywhere on the
 % figure (could be overlap if you're not careful).

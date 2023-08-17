@@ -1,4 +1,4 @@
-function Chanlocs = shiftTopoChannels(Chanlocs, Shift, Axis)
+function Chanlocs = shift_channel_locations(Chanlocs, Shift, Axis)
 % shifts locations of electrodes to improve topoplot symmetry.
 % Chanlocs is EEGLAB structure of channel locations
 % shift is how much to move it by. The original axes are approximately -0.5
