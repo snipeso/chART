@@ -102,7 +102,7 @@ elseif numel(N) == 2
 
     Lum = Lum/255;
 
-    hsl_Colors =chART.external.rgb2hsl(MainColors);
+    hsl_Colors = chART.external.rgb2hsl(MainColors);
     all_hsl_Colors = repmat(hsl_Colors, 1, 1, N(2));
     all_hsl_Colors(:, 3, :) =  repmat(Lum, N(1), 1);
 
