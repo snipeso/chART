@@ -11,9 +11,9 @@ end
 % plot for highlighting how data increases from one set to another.
 % For every row in Baseline(P x F) and Data, plots a line for Data1 and a patch
 % representing the increase in Data2 relative to Data1. Then it plots a
-% patch for the averages of Baseline and Data. XAxisData should be as many 
-% elements are there are columns in Data. Colors should be a P x 3 matrix 
-% of RGB values from 0 to 1. Direction should be either 'pos' or 'neg', but 
+% patch for the averages of Baseline and Data. XAxisData should be as many
+% elements are there are columns in Data. Colors should be a P x 3 matrix
+% of RGB values from 0 to 1. Direction should be either 'pos' or 'neg', but
 % default is 'pos'.
 
 if isfield(PlotProps, 'HandleVisibility')
@@ -31,8 +31,17 @@ for Indx_P = 1:Dims(1)
         HV = HandleVisibility;
     end
 
+    BL = Baseline(Indx_P, :);
+    D = Data(Indx_P, :);
+    if all(isnan(BL))
+        Data(Indx_P, :) = nan;
+    elseif all(isnan(D))
+        BL(Indx_P, :) = nan;
+    end
+
+
     hold on
-    plot_patch(Baseline(Indx_P, :), Data(Indx_P, :), XAxisData, Direction, Colors(Indx_P, :), ...
+    plot_patch(BL, D, XAxisData, Direction, Colors(Indx_P, :), ...
         PlotProps.Patch.Alpha, PlotProps.Line.Width/4, HV) % little numbers are alpha and linewidth
 end
 
