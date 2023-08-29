@@ -9,10 +9,13 @@ function PlotProps = load_plot_properties(PropertyTypes)
 % get template properties
 chART.properties.Template
 
-% Run selected, so it overwrites whatever it has
-for PropertyType = PropertyTypes(:)'
-    chART.properties.(PropertyType{1})
+if exist('PropertyTypes', 'var') && ~isempty(PropertyTypes)
+    % Run selected, so it overwrites whatever it has
+    for PropertyType = PropertyTypes(:)'
+        chART.properties.(PropertyType{1})
+    end
 end
+
 
 
 % Save to structure
