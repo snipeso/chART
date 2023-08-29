@@ -1,4 +1,12 @@
-function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, YLims, PlotProps)
+function individual_rows(Data, Stats, XLabels, YLims, PlotProps, Colors)
+arguments
+    Data
+    Stats = [];
+    XLabels = 1:size(Data, 2);
+    YLims = [];
+    PlotProps = chART.load_plot_properties();
+    Colors = chART.utils.resize_colormap(PlotProps.Color.Maps.Rainbow, size(Data, 1));
+end
 % plotConfettiSpaghetti(Data, Stats, XLabels, Colors, PlotProps)
 %
 % Plots Data (a P x N matrix) such that each P gets its own Color line, and
@@ -10,20 +18,14 @@ function plotConfettiSpaghetti(Data, Stats, XLabels, Colors, YLims, PlotProps)
 % solid. If Colors = [], then the function assigns rainbow colors to
 % everyone. If unique colors < P, these are used to group the participants,
 % and plots averages acordingly.
-%
-% PlotProps used:
-% - Line.LW
-% - Line.Alpha
-% - Scatter.Size
-% - Text.FontName
-% - Text.FontSize
+
 
 Dims = size(Data);
 
 if ~isempty(XLabels) && isnumeric(XLabels)
     XPoints = XLabels;
 else
-XPoints = 1:Dims(2);
+    XPoints = 1:Dims(2);
 end
 
 % assign rainbow colors if none are provided
@@ -51,20 +53,20 @@ TotGroups = size(ColorGroups, 1);
 
 % get means
 if TotGroups == Dims(1) % if there's one color per participant, so no special groups
-    
+
     MEANS = mean(Data, 1, 'omitnan');
     ColorGroups = [0 0 0];
 
 elseif  TotGroups == 1 % if there's one color for all values
-    
-     MEANS = mean(Data, 1, 'omitnan');
-    
+
+    MEANS = mean(Data, 1, 'omitnan');
+
 else
     % plot a separate mean for each color group
     MEANS = nan(TotGroups, Dims(2));
-    
+
     for Indx_G = 1:TotGroups
-       MEANS(Indx_G, :) = mean(Data(Groups==Indx_G, :), 'omitnan');
+        MEANS(Indx_G, :) = mean(Data(Groups==Indx_G, :), 'omitnan');
     end
 end
 
@@ -79,7 +81,7 @@ end
 % plot significance stars on top
 if ~isempty(Stats) && numel(Stats)==1
     plotHangmanStars(Stats, XPoints, YLims, ColorGroups, PlotProps)
-elseif ~isempty(Stats) && numel(Stats)>1 
+elseif ~isempty(Stats) && numel(Stats)>1
 end
 
 
@@ -91,4 +93,4 @@ if ~isempty(XLabels)
     xticklabels(XLabels)
 end
 
-set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize)
+chART.set_axis_properties(PlotProps)

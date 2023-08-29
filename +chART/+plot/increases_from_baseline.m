@@ -1,12 +1,12 @@
-function increases_from_baseline(Baseline, Data,  XAxisData, Direction, Colors, plotMean, PlotProps)
+function increases_from_baseline(Baseline, Data,  XAxisData, Direction, plotMean, PlotProps, Colors)
 arguments
     Baseline
     Data
     XAxisData
     Direction = 'pos';
-    Colors = rand(size(Baseline, 1), 3);
     plotMean = true;
     PlotProps = chART.load_plot_properties();
+    Colors = chART.utils.resize_colormap(PlotProps.Color.Maps.Rainbow, size(Baseline, 1));
 end
 % plot for highlighting how data increases from one set to another.
 % For every row in Baseline(P x F) and Data, plots a line for Data1 and a patch
