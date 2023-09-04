@@ -1,4 +1,12 @@
-function plotSpikeBalls(Data, XTickLabels, Legend, Colors, ErrorType, PlotProps)
+function average_rows(Data, XTickLabels, Legend, ErrorType, PlotProps,  Colors)
+arguments
+    Data
+    XTickLabels = [];
+    Legend = {};
+    ErrorType = 'SD';
+    PlotProps = chART.load_plot_properties();
+    Colors = chART.color_picker(size(Data, 3));
+end
 % Data is a P x M x N matrix. Legend and colors are N.
 % Error type can be: 'SD' standard deviation, 'IQ' interquartile range
 
