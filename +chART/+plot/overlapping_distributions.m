@@ -33,7 +33,7 @@ for Indx_X = 1:numel(xLabels)
             Color = Colors(Indx_P,  :);
         end
 
-        external.violin(D(:), 'x', [Indx_X, 0], 'facecolor', Color, 'edgecolor', 'none', ...
+        chART.external.violin(D(:), 'x', [Indx_X, 0], 'facecolor', Color, 'edgecolor', 'none', ...
             'facealpha', Transparency, 'mc', [], 'medc', []);
         %NB: error might be because array is not in correct orientation
     end
