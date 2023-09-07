@@ -39,7 +39,6 @@ for Indx_P = 1:Dims(1)
         BL(Indx_P, :) = nan;
     end
 
-
     hold on
     plot_patch(BL, D, XAxisData, Direction, Colors(Indx_P, :), ...
         PlotProps.Patch.Alpha, PlotProps.Line.Width/4, HV) % little numbers are alpha and linewidth
