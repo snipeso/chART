@@ -1,4 +1,4 @@
-function plotFuzzyCaterpillars(Data, CI, X, CI_Distance, Highlights, Colors, PlotProps)
+function highlighted_segments(Data, CI, X, CI_Distance, Highlights, Colors, PlotProps)
 % Plots lines, highlighting specific segments. Used to show statistically
 % significant differences from baseline in power spectrum data.
 % Data is an S x F matrix. Each S is a line.
