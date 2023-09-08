@@ -1,4 +1,4 @@
-function plotAngelHair(X, Data, Colors, Legend, PlotProps)
+function individual_rows_by_group(X, Data, Colors, Legend, PlotProps)
 % plots good for ERPs and similar average time courses.
 % X is a 1 x t array. Data is a P x C x t matrix. Colors is a C x 3 matrix.
 % Legend is a 3 x 1 cell array.
