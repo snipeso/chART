@@ -1,4 +1,10 @@
-function plotColorbar(Colormap, CLims, CLabel, PlotProps)
+function pretty_colorbar(Colormap, CLims, CLabel, PlotProps)
+arguments
+    Colormap = 'Linear';
+    CLims = [0 1];
+    CLabel = '';
+    PlotProps = chART.load_plot_properties();
+end
 % makes the colorbar exactly how I want it. A hack on top of a hack.
 
 % have a midpoint or not in the axis
@@ -22,17 +28,22 @@ else
     warning('May be rounding legend too much')
 end
 
-h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', 'LineWidth',2, 'Ticks', CLims(1):Spacing:CLims(2));
-ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize,'Color', 'k')
-caxis(CLims)
+h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', ...
+    'LineWidth', 2, 'Ticks', CLims(1):Spacing:CLims(2));
+
+if ~isempty(CLabel)
+ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, ...
+    'FontSize', PlotProps.Text.AxisSize,'Color', 'k')
+end
+
+clim(CLims)
 set(gca, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.AxisSize)
 
 for ii=1:numel(h.XTickLabel)
     h.XTickLabel{ii}=['\color[rgb]{0,0,0} ', h.XTickLabel{ii}];
 end
 
-
-
 h.TickLength = 0;
-colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), PlotProps.Color.Steps.(Colormap)))
+colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), ...
+    PlotProps.Color.Steps.(Colormap)))
 axis off
