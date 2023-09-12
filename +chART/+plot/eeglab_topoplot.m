@@ -1,6 +1,13 @@
-function plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, ColormapName, PlotProps)
-% plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, Colormap, PlotProps)
-
+function eeglab_topoplot(Data, Chanlocs, Stats, CLims, CLabel, ColormapName, PlotProps)
+arguments
+    Data
+    Chanlocs
+    Stats = [];
+    CLims = 'minmax';
+    CLabel = '';
+    ColormapName = 'Linear';
+    PlotProps = chART.load_plot_properties();
+end
 % pretty way of using EEGLAB's topoplot function. This is not my own plot.
 % Maybe one day it will be.
 
@@ -9,12 +16,6 @@ function plotTopoplot(Data, Stats, Chanlocs, CLims, CLabel, ColormapName, PlotPr
 % if Stats is not empty, will plot little white markers for significant
 % channels.
 
-if numel(CLims) ~= 2
-    CLims = 'minmax';
-    SetCLims = true;
-else
-    SetCLims = false;
-end
 
 Indexes = 1:numel(Chanlocs);
 
@@ -28,12 +29,7 @@ else
     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
-
-    %     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', ...
-    %         'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
-    %         'electrodes', 'on', 'colormap', Colormap);
 end
-
 
 xlim([-.55 .55])
 ylim([-.55 .6])
@@ -55,11 +51,10 @@ if ~isempty(CLabel)
     ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, 'FontSize', PlotProps.Text.LegendSize) % text style needs to be specified for label, because its weird
 end
 
-if SetCLims && strcmp(ColormapName, 'Divergent')
+if isstring(CLims) && strcmp(ColormapName, 'Divergent')
     CLims = clim;
     CLims = [-abs(max(CLims)), abs(max(CLims))];
     clim(CLims)
 end
-
 
 set(gca, 'Colormap', Colormap)
