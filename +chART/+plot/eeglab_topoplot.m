@@ -16,6 +16,10 @@ end
 % if Stats is not empty, will plot little white markers for significant
 % channels.
 
+if strcmp(ColormapName, 'Divergent') && isempty(CLims)
+    Lim = max(abs(Data));
+    CLims = [-Lim, Lim];
+end
 
 Indexes = 1:numel(Chanlocs);
 
