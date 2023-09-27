@@ -2,8 +2,8 @@
 
 %%% Axis positioning
 Figure.Padding = 40;
-Figure.Width = 84.1;
-Figure.Height = 118.8;
+Figure.Width = 118.8;
+Figure.Height = 84.1;
 Figure.Units = 'centimeters';
 
 Axes.xPadding = 25;
