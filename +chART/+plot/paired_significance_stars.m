@@ -1,4 +1,4 @@
-function plotHangmanStars(Stats, XPoints, YLims, Colors, PlotProps)
+function paired_significance_stars(Stats, XPoints, YLims, Colors, PlotProps)
 % function that plots all the pairwise comparisons in Stats.p, with a
 % single line for each effect. Sorted from bottom to top by total number of
 % significant comparisons.

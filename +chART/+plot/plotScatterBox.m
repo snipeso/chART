@@ -39,7 +39,7 @@ set(findobj(gca,'Tag','Outliers'),'Marker','none')
 
 %%% plot pairwise significances
 if ~isempty(Stats)
-    plotHangmanStars(Stats, 1:Dims(2), YLims, BoxColor, PlotProps)
+    chART.plot.paired_significance_stars(Stats, 1:Dims(2), YLims, BoxColor, PlotProps)
 end
 
 h=gca; h.YAxis.TickLength = [0 0];

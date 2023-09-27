@@ -80,7 +80,7 @@ end
 
 % plot significance stars on top
 if ~isempty(Stats) && numel(Stats)==1
-    plotHangmanStars(Stats, XPoints, YLims, ColorGroups, PlotProps)
+    chART.plot.paired_significance_stars(Stats, XPoints, YLims, ColorGroups, PlotProps)
 elseif ~isempty(Stats) && numel(Stats)>1
 end
 
