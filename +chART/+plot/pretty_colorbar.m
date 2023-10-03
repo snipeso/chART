@@ -28,8 +28,14 @@ else
     warning('May be rounding legend too much')
 end
 
+if strcmp(Colormap, 'Divergent')
+Ticks = unique([0:-Spacing:CLims(1), 0:Spacing:CLims(2)]);
+else
+    Ticks = CLims(1):Spacing:CLims(2);
+end
+
 h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', ...
-    'LineWidth', 2, 'Ticks', CLims(1):Spacing:CLims(2));
+    'LineWidth', 2, 'Ticks', Ticks);
 
 if ~isempty(CLabel)
 ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, ...
