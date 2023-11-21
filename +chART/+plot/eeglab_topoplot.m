@@ -8,9 +8,9 @@ arguments
     ColormapName = 'Linear';
     PlotProps = chART.load_plot_properties();
 end
+% eeglab_topoplot(Data, Chanlocs, Stats, CLims, CLabel, ColormapName, PlotProps)
 % pretty way of using EEGLAB's topoplot function. This is not my own plot.
 % Maybe one day it will be.
-
 % Data is a Ch x 1 matrix. If CLims is empty, uses "minmax". Colormap is
 % string.
 % if Stats is not empty, will plot little white markers for significant

@@ -23,7 +23,7 @@ Scatter.Size = 10;
 Patch.Alpha = .1;
 
 %%% Text
-Text.FontName = '';
+Text.FontName = 'Arial';
 
 % Font sizes
 Text.LegendSize = 10; % smallest text
