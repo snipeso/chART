@@ -1,5 +1,5 @@
 function Axes = sub_plot(Space, Grid, CornerLocation, Size, LabelSpace, Letter, PlotProps)
-%  subfigure(Space, Grid, Location, Letter, Format)
+% Axes = sub_plot(Space, Grid, CornerLocation, Size, LabelSpace, Letter, PlotProps)
 % Instead of subplot, this lets you place a subfigure anywhere on the
 % figure (could be overlap if you're not careful).
 % Space is a [left bottom width height] matrix outlining the space within
