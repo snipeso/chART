@@ -1,12 +1,13 @@
-function overlapping_histograms(Data, xLabel, xTickLabels, yLabel, Legend, PlotProps, Colors)
+function overlapping_histograms(Data,  xTickLabels, xLabel, yLabel, Legend, PlotProps, Colors, Alpha)
 arguments
     Data
-    xLabel = '';
     xTickLabels = 1:size(Data, 1);
+    xLabel = '';
     yLabel = '';
     Legend = {};
     PlotProps =  chART.load_plot_properties();
-    Colors = chART.color_picker([1, size(Data, 2)]);
+    Colors = chART.color_picker([size(Data, 2)]);
+    Alpha = .3;
 end
 % Plots overlapping "histograms" or bar plots.
 % Data: a N x L matrix, with each N reflecting a value for a specific bar,
@@ -20,7 +21,7 @@ Dims = size(Data);
 hold on
 for Indx_L = 1:Dims(2)
     bar(xTickLabels, Data(:, Indx_L), 'FaceColor', Colors(Indx_L, :), ...
-        'FaceAlpha', PlotProps.Patch.Alpha, 'EdgeColor','none')
+        'FaceAlpha', Alpha, 'EdgeColor','none')
 end
 
 chART.set_axis_properties(PlotProps)
