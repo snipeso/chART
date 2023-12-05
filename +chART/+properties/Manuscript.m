@@ -22,14 +22,12 @@ Scatter.Size = 30;
 %%% Patches
 Patch.Alpha = .2;
 
-%%% Text
-Text.FontName = 'Tw Cen MT';
 
 % Font sizes
-Text.LegendSize = 9; % smallest text
-Text.AxisSize = 11; % text size of x and y axes numbers and labels
-Text.TitleSize = 14; % size of title
-Text.IndexSize = 19; % size of number in top left corner, largest possible text
+Text.LegendSize = 7; % smallest text
+Text.AxisSize = 9; % text size of x and y axes numbers and labels
+Text.TitleSize = 12; % size of title
+Text.IndexSize = 15; % size of number in top left corner, largest possible text
 
 %%% Significance stars
 SigStar.Shift = .1;

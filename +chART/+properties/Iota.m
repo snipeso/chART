@@ -1,44 +1,32 @@
-% Formatting for PowerPoint presentations
-
-%%% Axis positioning
-Figure.Padding = 40;
-Figure.Width = 71;
-Figure.Height = 39.9;
-Figure.Units = 'centimeters';
-
-Axes.xPadding = 25;
-Axes.yPadding = Axes.xPadding;
+% All the possible plot formatting in this script. Not all are needed for
+% most figures.
 
 
 %%% Lines
-Line.Width = 5;
-Line.MarkerSize = 20;
 Line.Alpha = .3;
 
-%%% Scatter plot
-Scatter.Size = 100;
-
 %%% Patches
-Patch.Alpha = .4;
+Patch.Alpha = .2;
 
-% Font sizes
-Text.LegendSize = 20; % smallest text
-Text.AxisSize = 25; % text size of x and y axes numbers and labels
-Text.TitleSize = 30; % size of title
-Text.IndexSize = 30; % size of number in top left corner, largest possible text
+%%% Text
+Text.FontName = 'Meiryo';
 
 
 %%% Colormaps
 Color.Maps.Linear =  flip(chART.external.colorcet('L17'));
 Color.Maps.Monochrome = chART.external.colorcet('L2');
-Color.Maps.Divergent =  chART.external.colorcet('D1A');
+Color.Maps.Divergent = chART.external.colorcet('D1A');
 Color.Maps.Rainbow = chART.utils.rainbow;
+% Color.Maps.Rainbow = colorcet('R2');
 
 Color.Steps.Linear = 20;
 Color.Steps.Monochrome = 20;
 Color.Steps.Divergent = 28;
 Color.Steps.Rainbow = 20;
 
+Color.SigStar = 'k'; % significance stars on top of plots
+Color.Generic = [.5 .5 .5];
+Color.Background = [1 1 1];
 
 % Legend properties
 Colorbar.Location = 'west';
@@ -49,13 +37,18 @@ Indexes.Letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 Indexes.Numerals = {'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'};
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Statistics Limits
+Stats.Alpha = .05;
+Stats.Trend = .1;
+Stats.PlotN = false;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% External
 
 %%% EEGLAB-specific properties
-External.EEGLAB.TopoRes = 500; %  image resolution for topoplots
-External.EEGLAB.MarkerSize = 5; % size of significant channels
+External.EEGLAB.TopoRes = 50; %  image resolution for topoplots
+External.EEGLAB.MarkerSize = 2; % size of significant channels
 
 
 

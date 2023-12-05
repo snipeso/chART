@@ -19,6 +19,8 @@ end
 if strcmp(ColormapName, 'Divergent') && isempty(CLims)
     Lim = max(abs(Data));
     CLims = [-Lim, Lim];
+elseif isempty(CLims)
+    CLims = 'minmax';
 end
 
 Indexes = 1:numel(Chanlocs);
