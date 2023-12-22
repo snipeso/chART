@@ -64,6 +64,7 @@ switch N(1)
    MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive; AllColors.pink; AllColors.black; AllColors.brown];
+   ColorOrder = [3 6 2 8 4 7 1 5 9 11 10];
     otherwise
         error('too many colors')
 end
@@ -72,9 +73,8 @@ end
 if exist('Order', 'var')
     switch Order
         case 'rainbow'
-            FullOrder = [7 3 1 5 8 2 6 4]; % maximum final order
-            [~, Order] = sort(FullOrder(1:N(1)), 'ascend'); % order for subset
-            MainColors = MainColors(Order, :);
+            % [~, Order] = sort(ColorOrder, 'ascend'); % order for subset
+            MainColors = MainColors(ColorOrder, :);
     end
 end
 
