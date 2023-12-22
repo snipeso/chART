@@ -17,7 +17,7 @@ Line.MarkerSize = 6;
 Line.Alpha = .3;
 
 %%% Scatter plot
-Scatter.Size = 30;
+Scatter.Size = 10;
 
 %%% Patches
 Patch.Alpha = .2;

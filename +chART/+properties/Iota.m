@@ -1,6 +1,8 @@
 % All the possible plot formatting in this script. Not all are needed for
 % most figures.
 
+Scatter.Size = 10;
+Scatter.Alpha = .6;
 
 %%% Lines
 Line.Alpha = .3;
@@ -9,7 +11,7 @@ Line.Alpha = .3;
 Patch.Alpha = .2;
 
 %%% Text
-Text.FontName = 'Meiryo';
+Text.FontName = 'Noto sans';
 
 
 %%% Colormaps
@@ -21,7 +23,7 @@ Color.Maps.Rainbow = chART.utils.rainbow;
 
 Color.Steps.Linear = 20;
 Color.Steps.Monochrome = 20;
-Color.Steps.Divergent = 28;
+Color.Steps.Divergent = 30;
 Color.Steps.Rainbow = 20;
 
 Color.SigStar = 'k'; % significance stars on top of plots
