@@ -29,17 +29,30 @@ else
 end
 
 if strcmp(Colormap, 'Divergent')
-Ticks = unique([0:-Spacing:CLims(1), 0:Spacing:CLims(2)]);
+    Ticks = unique([0:-Spacing:CLims(1), 0:Spacing:CLims(2)]);
+    if CLims(2)-max(Ticks) > Spacing/2
+        Ticks = [Ticks, CLims(2)];
+    end
+    if abs(CLims(1))-abs(min(Ticks)) > Spacing/2
+        Ticks = [ CLims(1), Ticks];
+    end
+    Ticks = sort(Ticks);
+
 else
     Ticks = CLims(1):Spacing:CLims(2);
+    if CLims(2)-Ticks(end) > Spacing/2
+        Ticks(end+1) = CLims(2);
+    end
+    Ticks = unique(Ticks);
 end
+
 
 h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', ...
     'LineWidth', 2, 'Ticks', Ticks);
 
 if ~isempty(CLabel)
-ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, ...
-    'FontSize', PlotProps.Text.AxisSize,'Color', 'k')
+    ylabel(h, CLabel, 'FontName', PlotProps.Text.FontName, ...
+        'FontSize', PlotProps.Text.AxisSize,'Color', 'k')
 end
 
 clim(CLims)
