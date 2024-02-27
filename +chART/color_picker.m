@@ -61,13 +61,15 @@ switch N(1)
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive; AllColors.pink; AllColors.black];
     case 11
-   MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
+        MainColors = [AllColors.blue; AllColors.yellow;  AllColors.red;
             AllColors.green; AllColors.purple; AllColors.orange;
             AllColors.teal; AllColors.olive; AllColors.pink; AllColors.black; AllColors.brown];
-   ColorOrder = [3 6 2 8 4 7 1 5 9 11 10];
     otherwise
         error('too many colors')
 end
+
+ColorOrder = [3 6 2 8 4 7 1 5 9 11 10];
+ColorOrder(ColorOrder>N(1)) = [];
 
 % change order of colors if requested
 if exist('Order', 'var')
