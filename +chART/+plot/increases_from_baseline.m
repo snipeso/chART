@@ -24,6 +24,12 @@ end
 
 Dims = size(Baseline);
 
+if Dims(2)==1
+    Baseline = Baseline';
+    Data = Data';
+    Dims = Dims';
+end
+
 for Indx_P = 1:Dims(1)
     if Indx_P > 1
         HV = 'off';

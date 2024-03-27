@@ -110,7 +110,7 @@ while any(pValues_mirror(:) < .1 & ~isnan(pValues_mirror(:))) % loop until all p
         
         % plot stars
         P = Ps(Indx_x, Indx);
-        Symbol = significance_symbol(P);
+        Symbol = chART.utils.significance_symbol(P);
         if ~isempty(Symbol)
             text(X_Minor(Indx_x), YHeight-Increase*.7, Symbol, 'HorizontalAlignment', 'center', ...
                 'Color', C, 'FontSize', PlotProps.Text.LegendSize, 'FontName', PlotProps.Text.FontName)
