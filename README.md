@@ -7,35 +7,41 @@ This is a collection of functions for making nice scientific plots. I make it fo
 ### average line plot
 `chART.plot.average_rows()`
 Averages rows of data into a classic line plot with error bars.
+
 <img src="docs/average_rows.PNG" alt="Image" width="300"  style="text-align:center;"/>
 
 
 ### EEG topoplot
 `chART.plot.eeglab_topoplot()`
 This uses EEGLABs scripts for plotting a topoplot, but sets the color and formatting as I like it.
+
 <img src="docs/eeglab_topoplot.png" alt="Image" width="400" style="text-align:center;"/>
 
 
 ### time-locked signals
 `chART.plot.highlighted_segments()`
 This is good for ERPs or similar, but also overlapping frequency spectrums, wherever you want to highlight sections that differ from 0 or from another section.
+
 <img src="docs/highlight_segment.PNG" alt="Image" width="400" style="text-align:center;"/>
 
 ### increase in spectrogram (or similar)
 `chART.plot.increase_from_baseline()`
 This is used to highlight an increase in spectral power relative to a baseline, for a lot of participants, overlapping them to see everyone at once.
+
 <img src="docs/increase_from_baseline.PNG" alt="Image" width="500" style="text-align:center;"/>
 
 
 ### basic within-subject data
 `chART.plot.individual_rows()`
 This is the classic plot to show each participant's values for simple data.
+
 <img src="docs/individual_rows.png" alt="Image" width="400" style="text-align:center;"/>
 
 
 ### distributions
 `chART.plot.overlapping_distributions()`
 This is to plot normal-ish distributions of multiple participants as violin plots.
+
 <img src="docs/overlapping_distributions.PNG" alt="Image" width="500" style="text-align:center;"/>
 
 
