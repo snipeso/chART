@@ -11,7 +11,7 @@ Averages rows of data into a classic line plot with error bars.
 
 ### increase in spectrogram (or similar)
 `increase_from_baseline()`
-<img src="docs/increase_from_baseline.PNG" alt="Image" width="500"/ style="text-align:center;">
+<img src="docs/increase_from_baseline.PNG" alt="Image" width="500" style="text-align:center;">
 
 
 ## How it works
