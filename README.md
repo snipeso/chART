@@ -11,6 +11,8 @@ Averages rows of data into a classic line plot with error bars.
 `increase_from_baseline()`
 ![](docs/increase_from_baseline.PNG)
 
+<img src="docs/increase_from_baseline.PNG" alt="Image" width="300"/>
+
 
 ## How it works
 
