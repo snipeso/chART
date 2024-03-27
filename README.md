@@ -8,6 +8,9 @@ This is a collection of functions for making nice scientific plots. I make it fo
 Averages rows of data into a classic line plot with error bars.
 ![AverageRows](docs/average_rows.PNG)
 
+`increase_from_baseline()`
+![](docs/increase_from_baseline.PNG)
+
 
 ## How it works
 
