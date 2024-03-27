@@ -4,14 +4,14 @@ This is a collection of functions for making nice scientific plots. I make it fo
 
 ## The plots
 
+### average line plot
 `average_rows()`
 Averages rows of data into a classic line plot with error bars.
-![AverageRows](docs/average_rows.PNG)
+<img src="docs/average_rows.PNG" alt="Image" width="500"/>
 
+### increase in spectrogram (or similar)
 `increase_from_baseline()`
-![](docs/increase_from_baseline.PNG)
-
-<img src="docs/increase_from_baseline.PNG" alt="Image" width="300"/>
+<img src="docs/increase_from_baseline.PNG" alt="Image" width="500"/ style="text-align:center;">
 
 
 ## How it works
