@@ -42,7 +42,7 @@ This is the classic plot to show each participant's values for simple data.
 `chART.plot.overlapping_distributions()`
 This is to plot normal-ish distributions of multiple participants as violin plots. Relies on Hoffmann H, 2015 function `violin`.
 
-<img src="docs/overlapping_distributions.PNG" alt="Image" width="500" style="text-align:center;"/>
+<img src="docs/overlapping_distributions.PNG" alt="Image" width="400" style="text-align:center;"/>
 
 
 ## How it works
