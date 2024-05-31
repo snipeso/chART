@@ -46,6 +46,15 @@ else
     Ticks = unique(Ticks);
 end
 
+% use the least amount of digits
+if max(abs(Ticks))>10
+    Ticks = round(Ticks);
+elseif max(abs(Ticks)) > 1
+    Ticks = round(Ticks, 1);
+elseif max(abs(Ticks)) > .1
+     Ticks = round(Ticks, 2);
+end
+
 
 h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', ...
     'LineWidth', 2, 'Ticks', Ticks);
@@ -65,4 +74,4 @@ end
 h.TickLength = 0;
 colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), ...
     PlotProps.Color.Steps.(Colormap)))
-axis off
+% axis off
