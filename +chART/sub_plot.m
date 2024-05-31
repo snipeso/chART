@@ -56,7 +56,7 @@ yPadding = PlotProps.Axes.yPadding;
 
 % get grid dividers
 X = linspace(Space(1), Space(1)+Space(3), Grid(2)+1);
-Y = flip(linspace(Space(2), Space(2)+Space(4), Grid(1)+1));
+Y = 1*flip(linspace(Space(2), Space(2)+Space(4), Grid(1)+1));
 
 % get axes size
 axisWidth = X(2)-X(1);
@@ -78,7 +78,7 @@ if ~isempty(Letter)
     Txt = annotation('textbox', [0 0 0 0], 'string', Letter, 'Units', 'pixels', ...
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
     Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, ...
-        Y(CornerLocation(1)-Size(1)+1) 0 0];
+        1.03*Y(CornerLocation(1)-Size(1)+1) 0 0];
     Txt.Units = 'normalized';
 end
 
