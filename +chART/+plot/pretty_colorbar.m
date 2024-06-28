@@ -14,13 +14,23 @@ else
     Spacing = (CLims(2)-CLims(1))/3;
 end
 
-% round to reasonable decimal
-Biggest = max(abs(CLims));
-if Biggest > 10
-    Spacing = round(Spacing);
-elseif Biggest > 1
-    Spacing = round(Spacing, 1);
+Biggest = diff(CLims);
 
+if Biggest > 10
+    CLims = round(CLims/10)*10;
+elseif Biggest > 1
+    CLims = round(CLims);
+elseif Biggest > .1
+    CLims = round(CLims, 1);
+else
+    CLims = round(CLims, 2);
+    warning('May be rounding legend too much')
+end
+
+if Spacing > 10
+    Spacing = round(Spacing/10)*10;
+elseif Spacing > 1
+    Spacing = round(Spacing);
 elseif Biggest > .1
     Spacing = round(Spacing, 1);
 else
@@ -28,8 +38,24 @@ else
     warning('May be rounding legend too much')
 end
 
+
+% % round to reasonable decimal
+% Biggest = max(abs(CLims));
+% if Biggest > 10
+%     Spacing = round(Spacing/10)*10;
+% elseif Biggest > 1
+%     Spacing = round(Spacing);
+% 
+% elseif Biggest > .1
+%     Spacing = round(Spacing, 1);
+% else
+%     Spacing = round(Spacing, 2);
+%     warning('May be rounding legend too much')
+% end
+
 if strcmp(Colormap, 'Divergent')
     Ticks = unique([0:-Spacing:CLims(1), 0:Spacing:CLims(2)]);
+
     if CLims(2)-max(Ticks) > Spacing/2
         Ticks = [Ticks, CLims(2)];
     end
@@ -46,14 +72,29 @@ else
     Ticks = unique(Ticks);
 end
 
-% use the least amount of digits
-if max(abs(Ticks))>10
-    Ticks = round(Ticks);
-elseif max(abs(Ticks)) > 1
-    Ticks = round(Ticks, 1);
-elseif max(abs(Ticks)) > .1
-     Ticks = round(Ticks, 2);
-end
+
+    % round to reasonable decimal
+% Biggest = max(abs(Ticks));
+% if Spacing > 10
+%     Ticks = round(Ticks/10)*10;
+% elseif Spacing > 1
+%     Ticks = round(Ticks);
+% 
+% elseif Spacing > .1
+%     Ticks = round(Ticks, 1);
+% else
+%     Ticks = round(Ticks, 2);
+%     warning('May be rounding legend too much')
+% end
+
+% % use the least amount of digits
+% if max(abs(Ticks))>10
+%     Ticks = round(Ticks);
+% elseif max(abs(Ticks)) > 1
+%     Ticks = round(Ticks, 1);
+% elseif max(abs(Ticks)) > .1
+%      Ticks = round(Ticks, 2);
+% end
 
 
 h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', ...
