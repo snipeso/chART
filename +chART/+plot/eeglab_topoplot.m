@@ -19,8 +19,8 @@ end
 if strcmp(ColormapName, 'Divergent') && isempty(CLims)
     Lim = max(abs(Data));
     CLims = [-Lim, Lim];
-elseif isempty(CLims)
-    CLims = 'minmax';
+elseif isempty(CLims) || strcmp(CLims, 'minmax')
+    CLims = quantile(Data, [0 1]);
 end
 
 Indexes = 1:numel(Chanlocs);
@@ -54,7 +54,7 @@ A.Children(1).MarkerSize = PlotProps.External.EEGLAB.MarkerSize;
 if ~isempty(CLabel)
     % chART.plot.vertical_colorbar(CLabel, PlotProps)
     colorbar off
-    chART.plot.pretty_colorbar('Divergent', CLims, CLabel, PlotProps)
+    chART.plot.pretty_colorbar(ColormapName, CLims, CLabel, PlotProps)
 end
 
 if isstring(CLims) && strcmp(ColormapName, 'Divergent')
@@ -63,6 +63,6 @@ if isstring(CLims) && strcmp(ColormapName, 'Divergent')
     clim(CLims)
 end
 
-set(gca, 'Colormap', Colormap)
-
+% set(gca, 'Colormap', Colormap)
+colormap(Colormap)
 
