@@ -13,6 +13,7 @@ end
 Bars = bar(Data, 'stacked');
 
 if ~isempty(XLabels)
+    xticks(1:numel(XLabels))
     xticklabels(XLabels)
 end
 
