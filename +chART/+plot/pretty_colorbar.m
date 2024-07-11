@@ -7,6 +7,10 @@ arguments
 end
 % makes the colorbar exactly how I want it. A hack on top of a hack.
 
+if isempty(CLims)
+    CLims = clim;
+end
+
 % have a midpoint or not in the axis
 if strcmp(Colormap, 'Divergent')
     Spacing = (CLims(2)-CLims(1))/4;
@@ -31,7 +35,7 @@ if Spacing > 10
     Spacing = round(Spacing/10)*10;
 elseif Spacing > 1
     Spacing = round(Spacing);
-elseif Biggest > .1
+elseif Spacing > .1
     Spacing = round(Spacing, 1);
 else
     Spacing = round(Spacing, 2);
