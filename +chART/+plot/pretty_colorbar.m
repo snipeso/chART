@@ -18,18 +18,18 @@ else
     Spacing = (CLims(2)-CLims(1))/3;
 end
 
-Biggest = diff(CLims);
-
-if Biggest > 10
-    CLims = round(CLims/10)*10;
-elseif Biggest > 1
-    CLims = round(CLims);
-elseif Biggest > .1
-    CLims = round(CLims, 1);
-else
-    CLims = round(CLims, 2);
-    warning('May be rounding legend too much')
-end
+% Biggest = diff(CLims);
+% 
+% if Biggest > 10
+%     CLims = round(CLims/10)*10;
+% elseif Biggest > 1
+%     CLims = round(CLims);
+% elseif Biggest > .1
+%     CLims = round(CLims, 1);
+% else
+%     CLims = round(CLims, 2);
+%     warning('May be rounding legend too much')
+% end
 
 if Spacing > 10
     Spacing = round(Spacing/10)*10;
