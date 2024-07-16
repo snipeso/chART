@@ -10,12 +10,19 @@ end
 % Data is a X x L matrix, with each row indicating a new bar, and L a color
 % brick.
 
-Bars = bar(Data, 'stacked');
+if isnumeric(XLabels)
+    Bars = bar(XLabels, Data, 'stacked');
 
-if ~isempty(XLabels)
+elseif ~isempty(XLabels)
     xticks(1:numel(XLabels))
     xticklabels(XLabels)
+    Bars = bar(1:numel(XLabels), Data, 'stacked');
+else
+    Bars = bar(Data, 'stacked');
 end
+
+
+
 
 if ~isempty(Legend)
     legend(Legend)

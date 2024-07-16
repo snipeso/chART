@@ -37,8 +37,12 @@ if isempty(Size)
 end
 
 if LabelSpace
-    PaddingLabels = PlotProps.Axes.labelPadding;
-    FigSpace(1) = FigSpace(1)+PlotProps.Axes.labelPadding;
+    % PaddingLabels = PlotProps.Axes.labelPadding;
+    PaddingLabels = PlotProps.Text.AxisSize*2.5;
+    FigSpace(1) = FigSpace(1)+PaddingLabels/2;
+    FigSpace(2) = FigSpace(2)+PaddingLabels/2;
+    % FigSpace(3) = FigSpace(3)-PaddingLabels;
+    % FigSpace(4) = FigSpace(4)-PaddingLabels;
 else
     PaddingLabels = 0;
 end
@@ -65,8 +69,8 @@ axisHeight = Y(1)-Y(2);
 % get position
 Left = X(CornerLocation(2))+xPadding+PaddingLabels;
 Bottom = Y(1+CornerLocation(1))+yPadding+PaddingLabels;
-Width = axisWidth*Size(2)-xPadding*2-PaddingLabels;
-Height = axisHeight*Size(1)-yPadding*2-PaddingLabels;
+Width = axisWidth*Size(2)-xPadding*2-PaddingLabels*2;
+Height = axisHeight*Size(1)-yPadding*2-PaddingLabels*2;
 
 % set up axes
 Position = [Left, Bottom, Width, Height];
@@ -79,7 +83,7 @@ if ~isempty(Letter)
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
     % Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, ...
     %     1.03*Y(CornerLocation(1)) 0 0];
-    Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, Axes.Position(2)+Axes.Position(4)+2.25*FontSize, 0 0 ];
+    Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding*LabelSpace, Axes.Position(2)+Axes.Position(4)+2.25*FontSize, 0 0 ];
     Txt.Units = 'normalized';
 end
 
@@ -101,4 +105,5 @@ if PlotProps.Debug
     A = gca;
     A.Units = 'pixels';
     Box.Position = A.Position;
+    A.Units = 'normalized';
 end
