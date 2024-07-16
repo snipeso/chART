@@ -32,3 +32,4 @@ PlotProps.Indexes = Indexes;
 PlotProps.Stats = Stats;
 PlotProps.External = External;
 PlotProps.SigStar = SigStar;
+PlotProps.Debug = Debug;

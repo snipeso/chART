@@ -77,8 +77,9 @@ Axes = axes('Units', 'pixels', 'Position', Position);
 if ~isempty(Letter)
     Txt = annotation('textbox', [0 0 0 0], 'string', Letter, 'Units', 'pixels', ...
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
-    Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, ...
-        1.03*Y(CornerLocation(1)-Size(1)+1) 0 0];
+    % Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, ...
+    %     1.03*Y(CornerLocation(1)) 0 0];
+    Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding, Axes.Position(2)+Axes.Position(4)+2.25*FontSize, 0 0 ];
     Txt.Units = 'normalized';
 end
 
@@ -87,14 +88,17 @@ set(gca, 'Units', 'normalized')
 
 
 %%% Debugging stuff
-% % % %
-% figure padding
-% Box = annotation('rectangle', [0 0 0 0], 'Color', 'red', 'Units', 'pixels');
-% Box.Position = FigSpace;
-% 
-% 
-% % Axis padding
-% Box = annotation('rectangle', [0 0 0 0], 'Color', 'red', 'Units', 'pixels');
-% A = gca;
-% A.Units = 'pixels';
-% Box.Position = A.Position;
+
+if PlotProps.Debug
+
+    % figure padding
+    Box = annotation('rectangle', [0 0 0 0], 'Color', 'red', 'Units', 'pixels');
+    Box.Position = FigSpace;
+
+
+    % Axis padding
+    Box = annotation('rectangle', [0 0 0 0], 'Color', 'red', 'Units', 'pixels');
+    A = gca;
+    A.Units = 'pixels';
+    Box.Position = A.Position;
+end
