@@ -40,7 +40,8 @@ set(gcf, 'InvertHardcopy', 'off', 'Color', PlotProps.Color.Background)
 if doSVG
     % save svg
     svgFile = fullfile(Destination, [Title, '.svg']);
-    saveas(gcf, svgFile);
+    % saveas(gcf, svgFile);
+    print(gcf,  svgFile, '-dsvg', '-r1000')
 
     % Replace color-interpolation from linearRGB to sRGB
     fileText = fileread(svgFile);
