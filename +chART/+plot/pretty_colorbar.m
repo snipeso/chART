@@ -37,8 +37,10 @@ elseif Spacing > 1
     Spacing = round(Spacing);
 elseif Spacing > .1
     Spacing = round(Spacing, 1);
+    CLims = round(CLims, 1);
 else
     Spacing = round(Spacing, 2);
+      CLims = round(CLims, 2);
     warning('May be rounding legend too much')
 end
 

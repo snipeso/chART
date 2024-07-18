@@ -60,8 +60,8 @@ end
 if isstring(CLims) && strcmp(ColormapName, 'Divergent')
     CLims = clim;
     CLims = [-abs(max(CLims)), abs(max(CLims))];
-    clim(CLims)
 end
+    clim(CLims)
 
 % set(gca, 'Colormap', Colormap)
 colormap(Colormap)
