@@ -89,7 +89,6 @@ end
 
 
 set(gca, 'Units', 'normalized')
-set(gca, 'Visible', 'off')
 
 
 %%% Debugging stuff
