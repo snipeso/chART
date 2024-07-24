@@ -35,6 +35,7 @@ if Spacing > 10
     Spacing = round(Spacing/10)*10;
 elseif Spacing > 1
     Spacing = round(Spacing);
+     CLims = round(CLims, 1);
 elseif Spacing > .1
     Spacing = round(Spacing, 1);
     CLims = round(CLims, 1);
