@@ -26,6 +26,12 @@ elseif strcmpi(Extention, 'svg')
     doPDF = false;
     doTIFF = false;
     doPNG = true;
+
+    elseif strcmpi(Extention, 'png')
+    doSVG = false;
+    doPDF = false;
+    doTIFF = false;
+    doPNG = true;
 else
     doSVG = false;
     doPDF = false;
