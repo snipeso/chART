@@ -6,7 +6,7 @@ arguments
 end
 % little script for saving figures, so I can change things all together if
 % I want. Based on the extention of Title, it will make that figure.
-% Currently supports: PNG, SVG, PDF. If nothing is provided it will do all
+% Currently supports: PNG, SVG, PDF, TIF. If nothing is provided it will do all
 % of them.
 
 Extention = extractAfter(Title, '.');
@@ -16,27 +16,41 @@ if isempty(Extention)
     doPDF = true;
     doTIFF = true;
     doPNG = false;
+
 elseif strcmpi(Extention, 'pdf')
     doSVG = true;
     doPDF = true;
     doTIFF = false;
     doPNG = true;
+    Title = extractBefore(Title, '.');
+
 elseif strcmpi(Extention, 'svg')
     doSVG = true;
     doPDF = false;
     doTIFF = false;
     doPNG = true;
+    Title = extractBefore(Title, '.');
 
-    elseif strcmpi(Extention, 'png')
+elseif strcmpi(Extention, 'png')
     doSVG = false;
     doPDF = false;
     doTIFF = false;
     doPNG = true;
+    Title = extractBefore(Title, '.');
+
+elseif strcmpi(Extention, 'tif')
+    doSVG = false;
+    doPDF = false;
+    doTIFF = true;
+    doPNG = false;
+    Title = extractBefore(Title, '.');
+
 else
     doSVG = false;
     doPDF = false;
     doTIFF = false;
     doPNG = true;
+    Title = extractBefore(Title, '.');
     warning("Don't know this option, saving png")
 
 end
@@ -62,7 +76,7 @@ end
 if doPDF
     command = strcat('"C:\Program Files\Inkscape\bin\inkscape.exe" ', {' '}, '"', fullfile(Destination, Title),...
         '.svg" --export-filename="', fullfile(Destination, Title), '.pdf"');
-    [ status, msg ] = system(command{1}); % Run command prompt - return variable to suppress output text
+    [~, msg] = system(command{1}); % Run command prompt - return variable to suppress output text
     disp(msg)
 end
 
