@@ -78,6 +78,7 @@ Position = [Left, Bottom, Width, Height];
 Axes = axes('Units', 'pixels', 'Position', Position);
 
 % plot index letter/number
+
 if ~isempty(Letter)
     Txt = annotation('textbox', [0 0 0 0], 'string', Letter, 'Units', 'pixels', ...
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
