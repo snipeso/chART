@@ -19,7 +19,7 @@ else
 end
 
 % Biggest = diff(CLims);
-% 
+%
 % if Biggest > 10
 %     CLims = round(CLims/10)*10;
 % elseif Biggest > 1
@@ -35,13 +35,13 @@ if Spacing > 10
     Spacing = round(Spacing/10)*10;
 elseif Spacing > 1
     Spacing = round(Spacing);
-     CLims = round(CLims, 1);
+    CLims = round(CLims, 1);
 elseif Spacing > .1
     Spacing = round(Spacing, 1);
     CLims = round(CLims, 1);
 else
     Spacing = round(Spacing, 2);
-      CLims = round(CLims, 2);
+    CLims = round(CLims, 2);
     warning('May be rounding legend too much')
 end
 
@@ -52,7 +52,7 @@ end
 %     Spacing = round(Spacing/10)*10;
 % elseif Biggest > 1
 %     Spacing = round(Spacing);
-% 
+%
 % elseif Biggest > .1
 %     Spacing = round(Spacing, 1);
 % else
@@ -80,13 +80,13 @@ else
 end
 
 
-    % round to reasonable decimal
+% round to reasonable decimal
 % Biggest = max(abs(Ticks));
 % if Spacing > 10
 %     Ticks = round(Ticks/10)*10;
 % elseif Spacing > 1
 %     Ticks = round(Ticks);
-% 
+%
 % elseif Spacing > .1
 %     Ticks = round(Ticks, 1);
 % else

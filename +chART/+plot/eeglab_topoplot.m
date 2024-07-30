@@ -51,17 +51,20 @@ else
 end
 A.Children(1).MarkerSize = PlotProps.External.EEGLAB.MarkerSize;
 
-if ~isempty(CLabel)
-    % chART.plot.vertical_colorbar(CLabel, PlotProps)
-    colorbar off
-    chART.plot.pretty_colorbar(ColormapName, CLims, CLabel, PlotProps)
-end
 
 if isstring(CLims) && strcmp(ColormapName, 'Divergent')
     CLims = clim;
     CLims = [-abs(max(CLims)), abs(max(CLims))];
 end
+
+if ~isempty(CLabel)
+    % chART.plot.vertical_colorbar(CLabel, PlotProps)
+    colorbar off
+    chART.plot.pretty_colorbar(ColormapName, CLims, CLabel, PlotProps)
+else
     clim(CLims)
+end
+
 
 % set(gca, 'Colormap', Colormap)
 colormap(Colormap)
