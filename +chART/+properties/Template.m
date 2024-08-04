@@ -12,6 +12,7 @@ Figure.Units = 'centimeters';
 Axes.xPadding = 10;
 Axes.yPadding = 10;
 Axes.labelPadding = 10;
+Axes.TickDir = 'out';
 
 %%% Lines
 Line.Width = 1;

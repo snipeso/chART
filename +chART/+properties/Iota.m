@@ -12,7 +12,7 @@ Patch.Alpha = .2;
 
 %%% Text
 Text.FontName = 'Noto sans';
-
+Text.TitleSize = 11;
 
 %%% Colormaps
 Color.Maps.Linear =  flip(chART.external.colorcet('L17'));
@@ -21,7 +21,7 @@ Color.Maps.Divergent = chART.external.colorcet('D1A');
 Color.Maps.Rainbow = chART.utils.rainbow;
 % Color.Maps.Rainbow = colorcet('R2');
 
-Color.Steps.Linear = 20;
+Color.Steps.Linear = 200;
 Color.Steps.Monochrome = 20;
 Color.Steps.Divergent = 30;
 Color.Steps.Rainbow = 20;
@@ -38,6 +38,8 @@ Colorbar.Location = 'west';
 Indexes.Letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 Indexes.Numerals = {'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'};
 
+% Figure dimentions
+Figure.Width = 23;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Statistics Limits
@@ -49,7 +51,6 @@ Stats.PlotN = false;
 %%% External
 
 %%% EEGLAB-specific properties
-External.EEGLAB.TopoRes = 50; %  image resolution for topoplots
 External.EEGLAB.MarkerSize = 2; % size of significant channels
 
 
