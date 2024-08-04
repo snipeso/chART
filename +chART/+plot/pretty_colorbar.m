@@ -1,4 +1,4 @@
-function pretty_colorbar(Colormap, CLims, CLabel, PlotProps)
+function h = pretty_colorbar(Colormap, CLims, CLabel, PlotProps)
 arguments
     Colormap = 'Linear';
     CLims = [0 1];

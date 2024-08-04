@@ -60,7 +60,7 @@ end
 if ~isempty(CLabel)
     % chART.plot.vertical_colorbar(CLabel, PlotProps)
     colorbar off
-    chART.plot.pretty_colorbar(ColormapName, CLims, CLabel, PlotProps)
+    chART.plot.pretty_colorbar(ColormapName, CLims, CLabel, PlotProps);
 else
     clim(CLims)
 end
