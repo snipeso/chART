@@ -52,6 +52,7 @@ Color.Background = [1 1 1];
 
 % Legend properties
 Colorbar.Location = 'east';
+Colorbar.Ticks = 2;
 
 
 %%% Figure indexing properties

@@ -21,7 +21,6 @@ Scatter.Size = 100;
 Patch.Alpha = .4;
 
 %%% Text
-Text.FontName = 'Tw Cen MT';
 
 % Font sizes
 Text.LegendSize = 20; % smallest text
