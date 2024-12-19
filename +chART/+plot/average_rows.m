@@ -26,6 +26,12 @@ end
 hold on
 for Indx_N = 1:Dims(3)
     D = squeeze(mean(Data(:, :, Indx_N), 1, 'omitnan'));
+    
+    if size(Data, 1)==1
+          plot(X, D, 'o-', 'Color', Colors(Indx_N, :), 'markerfacecolor', Colors(Indx_N, :),...
+                'LineWidth', PlotProps.Line.Width, 'HandleVisibility', 'on');
+          continue
+    end
 
     switch ErrorType
         case 'IQ'
