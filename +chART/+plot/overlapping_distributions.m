@@ -2,8 +2,8 @@ function overlapping_distributions(DataStruct, PlotProps, Colors, Transparency)
 arguments
     DataStruct
     PlotProps = chART.load_plot_properties();
-    Colors = chART.utils.resize_colormap(PlotProps.Color.Maps.Rainbow, numel(fieldnames(DataStruct)));
-    Transparency = PlotProps.Patches.Alpha;
+    Colors = [];
+    Transparency = PlotProps.Patch.Alpha;
 end
 % plots overlapping translucent external.violin plots.
 % DataStruct is a recursive structure, where the first set of fields holds
@@ -11,6 +11,15 @@ end
 % need to be distributed.
 
 xLabels = fieldnames(DataStruct);
+
+if isempty(Colors)
+    if numel(fieldnames(DataStruct)) > 8
+        Colors = chART.utils.resize_colormap(PlotProps.Color.Maps.Rainbow, numel(fieldnames(DataStruct)));
+    else
+         Colors = chART.color_picker(numel(fieldnames(DataStruct)));
+         Transparency = .3;
+    end
+end
 
 
 Legend = {};

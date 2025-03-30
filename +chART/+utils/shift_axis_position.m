@@ -3,6 +3,7 @@ function shift_axis_position(Axis, X, Y)
 % X and Y are in pixels, and the new axes will be centered in the same
 % spot, but now larger.
 
+OldUnits = Axis.Units;
 Axis.Units = 'pixels';
 
 if ~isempty(X)
@@ -15,4 +16,4 @@ if ~isempty(Y)
     Axis.Position(4) =  Axis.Position(4) + Y*2;
 end
 
-Axis.Units = 'normalized';
+Axis.Units = OldUnits;

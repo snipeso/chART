@@ -21,9 +21,6 @@ else
     Bars = bar(Data, 'stacked');
 end
 
-
-
-
 if ~isempty(Legend)
     legend(Legend)
     set(legend, 'ItemTokenSize', [7 7], 'location', 'northeast')
