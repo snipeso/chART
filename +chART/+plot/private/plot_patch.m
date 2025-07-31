@@ -8,13 +8,23 @@ function plot_patch(D1, D2, X, Direction, Color, Alpha, LW, HV)
 switch Direction
     case 'pos'
         Patches = (D2-D1) >= 0;
+        [Starts, Ends] = data2windows(Patches);
     case 'neg'
         Patches = (D2-D1) <= 0;
+        [Starts, Ends] = data2windows(Patches);
     otherwise
-        error('invalid direction')
+        Patches = (D2-D1) >= 0;
+        [Starts, Ends] = data2windows(Patches);
+
+
+        Patches = (D2-D1) <= 0;
+        [StartsNeg, EndsNeg] = data2windows(Patches);
+
+        Starts = [Starts, StartsNeg];
+        Ends = [Ends, EndsNeg];
+        % error('invalid direction')
 end
 
-[Starts, Ends] = data2windows(Patches);
 
 hold on
 plot(X, D1, 'Color', [Color, Alpha], 'LineWidth', LW,  'HandleVisibility', 'off')

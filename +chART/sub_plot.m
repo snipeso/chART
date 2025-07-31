@@ -20,7 +20,15 @@ function Axes = sub_plot(Space, Grid, CornerLocation, Size, LabelSpace, Letter, 
 % Space = Axes.Position;
 % delete(Axes);
 % then run each sub axes with Space filled
-
+arguments
+    Space
+    Grid
+    CornerLocation
+    Size = [1 1]
+    LabelSpace = true
+    Letter = ''
+    PlotProps = chART.load_plot_properties()
+end
 
 
 PaddingExterior = PlotProps.Figure.Padding;
