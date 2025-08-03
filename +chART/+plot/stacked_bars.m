@@ -14,9 +14,9 @@ if isnumeric(XLabels)
     Bars = bar(XLabels, Data, 'stacked');
 
 elseif ~isempty(XLabels)
-    xticks(1:numel(XLabels))
-    xticklabels(XLabels)
     Bars = bar(1:numel(XLabels), Data, 'stacked');
+        xticks(1:numel(XLabels))
+    xticklabels(XLabels)
 else
     Bars = bar(Data, 'stacked');
 end
