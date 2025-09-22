@@ -1,6 +1,6 @@
 function h = pretty_colorbar(Colormap, CLims, CLabel, PlotProps)
 arguments
-    Colormap = 'Linear';
+    Colormap = 'Linear'; % could also be the actual colormap
     CLims = [0 1];
     CLabel = '';
     PlotProps = chART.load_plot_properties();
@@ -59,9 +59,13 @@ for ii=1:numel(h.XTickLabel)
 end
 
 h.TickLength = 0;
-colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), ...
-    PlotProps.Color.Steps.(Colormap)))
 
+if ischar(Colormap) || isstring(Colormap)
+    colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), ...
+        PlotProps.Color.Steps.(Colormap)))
+else
+    colormap(Colormap)
+end
 end
 
 

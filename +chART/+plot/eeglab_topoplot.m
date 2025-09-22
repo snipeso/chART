@@ -16,6 +16,12 @@ end
 % if Stats is not empty, will plot little white markers for significant
 % channels.
 
+if all(isnan(Data))
+    warning('all nan data')
+    axis off
+    return
+end
+
 if strcmp(ColormapName, 'Divergent') && isempty(CLims)
     Lim = max(abs(Data));
     CLims = [-Lim, Lim];
@@ -36,7 +42,7 @@ if isempty(Stats)
         'electrodes', 'on',  'maplimits', CLims, 'gridscale', PlotProps.External.EEGLAB.TopoRes, 'colormap', Colormap);
 elseif isstruct(Stats)
     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
-        'style', 'map',  'plotrad', PlotRat, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
+        'style', 'map',  'plotrad', PlotRad, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
 else
        topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
