@@ -16,7 +16,7 @@ end
 % if Stats is not empty, will plot little white markers for significant
 % channels.
 
-if all(isnan(Data))
+if all(isnan(Data)) || all(Data==0)
     warning('all nan data')
     axis off
     return
