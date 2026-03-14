@@ -85,6 +85,8 @@ if doTIFF
 end
 
 if doPNG
+    % svgFile = fullfile(Destination, [Title, '.png']);
+    % saveas(gcf, svgFile);
     svgFile = fullfile(Destination, [Title, '.png']);
-    saveas(gcf, svgFile);
+exportgraphics(gcf, svgFile);
 end
