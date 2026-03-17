@@ -66,7 +66,9 @@ if ischar(Colormap) || isstring(Colormap)
 else
     colormap(Colormap)
 end
-end
 
 h.Box = 'off';
+end
+
+
 % axis off
