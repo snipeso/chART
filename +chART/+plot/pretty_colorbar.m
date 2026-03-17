@@ -68,5 +68,5 @@ else
 end
 end
 
-
+h.Box = 'off';
 % axis off
