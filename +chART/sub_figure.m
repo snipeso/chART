@@ -1,11 +1,16 @@
-function Space = sub_figure(Grid, CornerLocation, Size, Letter, PlotProps, OldSpace, LabelSpace)
+function Space = sub_figure(Grid, CornerLocation, Size, Letter, PlotProps, OldAxes, LabelSpace)
 % NOTE: switched previous "subfigure" to sub_plot; subaxis is now this
 % mini script for setting up a sub-axis and getting coordinates. This is
 % just the empty space to put anther chART.sub_plot
 
-if ~exist('OldSpace', 'var') || isempty(OldSpace)
+if ~exist('OldAxes', 'var') || isempty(OldAxes)
 OldSpace = [];
+else
+    OldAxes.Units = 'pixels';
+    OldSpace = OldAxes.Position;
+    OldAxes.Visible = 'off';
 end
+
 
 if ~exist('LabelSpace', 'var')
     LabelSpace = false;

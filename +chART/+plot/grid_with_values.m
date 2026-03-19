@@ -32,18 +32,23 @@ for i = 1:size(Data, 1)
         if ~isnan(val)
             % Determine text color based on contrast
             if ~isempty(CLims)
-                normVal = (val - CLims(1)) / (CLims(2) - CLims(1));
+
+                if strcmp(Colormap, 'Divergent')
+                    normVal = (abs(val) - 0) / (CLims(2));
+                else
+                    normVal = (val - CLims(1)) / (CLims(2) - CLims(1));
+                end
             else
                 dmin = min(Data(:), [], 'omitnan');
                 dmax = max(Data(:), [], 'omitnan');
                 normVal = (val - dmin) / (dmax - dmin);
             end
-            if normVal > 0.5
+            if (normVal < 0.5 && strcmp(Colormap, 'Divergent')) || (normVal > 0.5 && strcmp(Colormap, 'Linear'))
                 txtColor = [0 0 0];  % dark text
             else
                 txtColor = [1 1 1];  % light text
             end
-            text(j, i, num2str(val, '%.2f'), ...
+            text(j, i, num2str(val), ...
                 'HorizontalAlignment', 'center', ...
                 'VerticalAlignment', 'middle', ...
                 'Color', txtColor, ...
@@ -53,5 +58,5 @@ for i = 1:size(Data, 1)
 end
 
 ax = gca;
-ax.TickLength = [0 0]; 
+ax.TickLength = [0 0];
 ax.XAxisLocation = 'top';

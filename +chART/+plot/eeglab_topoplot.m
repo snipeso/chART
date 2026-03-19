@@ -16,6 +16,12 @@ end
 % if Stats is not empty, will plot little white markers for significant
 % channels.
 
+if all(isnan(Data)) || all(Data==0)
+    warning('all nan data')
+    axis off
+    return
+end
+
 if strcmp(ColormapName, 'Divergent') && isempty(CLims)
     Lim = max(abs(Data));
     CLims = [-Lim, Lim];
@@ -25,16 +31,24 @@ end
 
 Indexes = 1:numel(Chanlocs);
 
+PlotRad = .73;
+PlotRad = .64;
+
 Chanlocs = chART.utils.shift_channel_locations(Chanlocs, .06, 'y'); % little adjustment to center the chanlocs better
 Colormap = chART.utils.resize_colormap(PlotProps.Color.Maps.(ColormapName), PlotProps.Color.Steps.(ColormapName));
 
 if isempty(Stats)
-    topoplot(Data, Chanlocs, 'style', 'map', 'headrad', 'rim', 'whitebk', 'on', ...
+    topoplot(Data, Chanlocs, 'style', 'map',  'plotrad', PlotRad, 'headrad', 'rim', 'whitebk', 'on', ...
         'electrodes', 'on',  'maplimits', CLims, 'gridscale', PlotProps.External.EEGLAB.TopoRes, 'colormap', Colormap);
-else
+elseif isstruct(Stats)
     topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
-        'style', 'map',  'plotrad', .73, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
+        'style', 'map',  'plotrad', PlotRad, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
+else
+       topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
+        'style', 'map',  'plotrad', PlotRad, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
+        'electrodes', 'on', 'emarker2', {Indexes(logical(Stats)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
+
 end
 
 xlim([-.55 .55])

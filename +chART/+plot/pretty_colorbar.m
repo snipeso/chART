@@ -1,6 +1,6 @@
 function h = pretty_colorbar(Colormap, CLims, CLabel, PlotProps)
 arguments
-    Colormap = 'Linear';
+    Colormap = 'Linear'; % could also be the actual colormap
     CLims = [0 1];
     CLabel = '';
     PlotProps = chART.load_plot_properties();
@@ -15,7 +15,7 @@ end
 nTicks = PlotProps.Colorbar.Ticks;
 
 
-  Spacing = diff(CLims)/4;
+Spacing = diff(CLims)/4;
 if Spacing > 10
     F = .1;
 elseif Spacing > 1
@@ -31,15 +31,17 @@ A = colorbar;
 Ticks = A.Ticks;
 colorbar off
 
-if numel(Ticks)==5
+if numel(Ticks) == 2
+    Ticks = CLims;
+elseif numel(Ticks)==5
     Ticks = Ticks([1, 3, 5]);
 elseif numel(Ticks)==6
-        Ticks(end+1) = Ticks(end)+Ticks(2)-Ticks(1);
-      Ticks = Ticks([1, 3, 5, 7]);
-      CLims(end) = Ticks(end);
-      clim(CLims)
+    Ticks(end+1) = Ticks(end)+Ticks(2)-Ticks(1);
+    Ticks = Ticks([1, 3, 5, 7]);
+    CLims(end) = Ticks(end);
+    clim(CLims)
 elseif  numel(Ticks)==7
-       Ticks = Ticks([1, 3, 5, 7]);
+    Ticks = Ticks([1, 3, 5, 7]);
 end
 
 h = colorbar('location', PlotProps.Colorbar.Location, 'Color', 'w', ...
@@ -57,9 +59,15 @@ for ii=1:numel(h.XTickLabel)
 end
 
 h.TickLength = 0;
-colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), ...
-    PlotProps.Color.Steps.(Colormap)))
 
+if ischar(Colormap) || isstring(Colormap)
+    colormap(chART.utils.resize_colormap(PlotProps.Color.Maps.(Colormap), ...
+        PlotProps.Color.Steps.(Colormap)))
+else
+    colormap(Colormap)
+end
+
+h.Box = 'off';
 end
 
 
