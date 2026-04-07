@@ -14,21 +14,21 @@ PaleColors = chART.utils.pale_colors(Colors, .4);
 
 X_Jumps = 1:CI_Distance:Dims(2);
 
-% plot the little legs of the caterpillar
-hold on
-for Indx_S = 1:Dims(1)
-
-    X_temp = X_Jumps((Indx_S):(Dims(1)):numel(X_Jumps));
-    X_points = X(X_temp);
-    D =  squeeze(Data(Indx_S, X_temp));
-    pos = squeeze(CI(2, Indx_S, X_temp))' - D;
-    neg = D - squeeze(CI(1, Indx_S, X_temp))';
-
-
-    errorbar(X_points, D,  neg, pos,...
-        'Color', [PaleColors(Indx_S, :)], 'CapSize', 0, ...
-        'LineWidth', PlotProps.Line.Width/2, 'HandleVisibility', 'off');
-end
+% % plot the little legs of the caterpillar
+% hold on
+% for Indx_S = 1:Dims(1)
+% 
+%     X_temp = X_Jumps((Indx_S):(Dims(1)):numel(X_Jumps));
+%     X_points = X(X_temp);
+%     D =  squeeze(Data(Indx_S, X_temp));
+%     pos = squeeze(CI(2, Indx_S, X_temp))' - D;
+%     neg = D - squeeze(CI(1, Indx_S, X_temp))';
+% 
+% 
+%     errorbar(X_points, D,  neg, pos,...
+%         'Color', [PaleColors(Indx_S, :)], 'CapSize', 0, ...
+%         'LineWidth', PlotProps.Line.Width/2, 'HandleVisibility', 'off');
+% end
 
 
 % plot thin lines of data
