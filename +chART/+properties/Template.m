@@ -64,9 +64,9 @@ SigStar.Shift = .05;
 Labels = struct();
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Statistics Limits
-Stats.Alpha = .05;
-Stats.Trend = .1;
-Stats.PlotN = false;
+StatProps.Alpha = .05;
+StatProps.Trend = .1;
+StatProps.PlotN = false;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
