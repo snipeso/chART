@@ -59,16 +59,16 @@ set(gcf, 'InvertHardcopy', 'off', 'Color', PlotProps.Color.Background)
 
 if doSVG
     % save svg
-    svgFile = fullfile(Destination, [Title, '.svg']);
-    print(gcf,  svgFile, '-dsvg', '-r500')
+    File = fullfile(Destination, [Title, '.svg']);
+    print(gcf,  File, '-dsvg', '-r500')
 
     % Replace color-interpolation from linearRGB to sRGB
-    fileText = fileread(svgFile);
+    fileText = fileread(File);
     fileText = strrep(fileText, 'color-interpolation:linearRGB;', 'color-interpolation:sRGB;');
     fileText = strrep(fileText, 'color-interpolation:auto;', 'color-interpolation:sRGB;');
 
     % Write the modified content back to the SVG file
-    fid = fopen(svgFile, 'w');
+    fid = fopen(File, 'w');
     fwrite(fid, fileText);
     fclose(fid);
 end
@@ -81,12 +81,11 @@ if doPDF
 end
 
 if doTIFF
-    print(fullfile(Destination, Title), '-dtiff', '-r500')
+File = fullfile(Destination, [Title '.tif']);
+exportgraphics(gcf, File, 'Resolution', 500);
 end
 
 if doPNG
-    % svgFile = fullfile(Destination, [Title, '.png']);
-    % saveas(gcf, svgFile);
-    svgFile = fullfile(Destination, [Title, '.png']);
-exportgraphics(gcf, svgFile);
+    File = fullfile(Destination, [Title, '.png']);
+    exportgraphics(gcf, File);
 end

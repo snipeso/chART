@@ -1,4 +1,4 @@
-function stacked_bars(Data, XLabels, YLim, Legend, PlotProps, Colors)
+function Bars = stacked_bars(Data, XLabels, YLim, Legend, PlotProps, Colors)
 arguments
     Data
     XLabels = [];
