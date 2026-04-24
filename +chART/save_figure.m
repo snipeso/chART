@@ -42,7 +42,7 @@ elseif strcmpi(Extention, 'tif')
     doSVG = false;
     doPDF = false;
     doTIFF = true;
-    doPNG = false;
+    doPNG = true;
     Title = extractBefore(Title, '.');
 
 else
@@ -80,12 +80,12 @@ if doPDF
     disp(msg)
 end
 
-if doTIFF
-File = fullfile(Destination, [Title '.tif']);
-exportgraphics(gcf, File, 'Resolution', 500);
-end
-
 if doPNG
     File = fullfile(Destination, [Title, '.png']);
     exportgraphics(gcf, File);
+end
+
+if doTIFF
+File = fullfile(Destination, [Title '.tif']);
+exportgraphics(gcf, File, 'Resolution', 500);
 end
