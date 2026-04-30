@@ -19,7 +19,6 @@ end
 Axis = chART.sub_plot(OldSpace, Grid, CornerLocation, Size, LabelSpace, Letter, PlotProps);
 Axis.Units = 'pixels';
 Space = Axis.Position;
-axis off
 
 Axis.Units = 'normalized';
 

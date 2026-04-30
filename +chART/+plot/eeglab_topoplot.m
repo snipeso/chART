@@ -45,7 +45,7 @@ elseif isstruct(Stats)
         'style', 'map',  'plotrad', PlotRad, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats.sig)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
 else
-       topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
+    topoplot(Data, Chanlocs, 'maplimits', CLims, 'whitebk', 'on', 'colormap', Colormap,  ...
         'style', 'map',  'plotrad', PlotRad, 'headrad', 'rim', 'gridscale',   PlotProps.External.EEGLAB.TopoRes, ...
         'electrodes', 'on', 'emarker2', {Indexes(logical(Stats)), 'o', 'w',  PlotProps.External.EEGLAB.MarkerSize, .05});
 
@@ -74,7 +74,10 @@ end
 if ~isempty(CLabel)
     % chART.plot.vertical_colorbar(CLabel, PlotProps)
     colorbar off
+    ax = gca;
+    pos = ax.Position;
     chART.plot.pretty_colorbar(ColormapName, CLims, CLabel, PlotProps);
+    ax.Position = pos;   % restore original axes size
 else
     clim(CLims)
 end
