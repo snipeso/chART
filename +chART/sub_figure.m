@@ -4,7 +4,7 @@ function Space = sub_figure(Grid, CornerLocation, Size, Letter, PlotProps, OldAx
 % just the empty space to put anther chART.sub_plot
 
 if ~exist('OldAxes', 'var') || isempty(OldAxes)
-OldSpace = [];
+    OldSpace = [];
 else
     OldAxes.Units = 'pixels';
     OldSpace = OldAxes.Position;

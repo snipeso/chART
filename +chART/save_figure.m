@@ -82,10 +82,10 @@ end
 
 if doPNG
     File = fullfile(Destination, [Title, '.png']);
-    exportgraphics(gcf, File);
+    exportgraphics(gcf, File, 'Resolution', 300);
 end
 
 if doTIFF
 File = fullfile(Destination, [Title '.tif']);
-exportgraphics(gcf, File, 'Resolution', 500);
+exportgraphics(gcf, File, 'Resolution', 400);
 end
