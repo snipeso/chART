@@ -90,7 +90,9 @@ Axes = axes('Units', 'pixels', 'Position', Position);
 if ~isempty(Letter)
     Txt = annotation('textbox', [0 0 0 0], 'string', Letter, 'Units', 'pixels', ...
         'FontSize', FontSize, 'FontName', PlotProps.Text.FontName, 'FontWeight', 'Bold');
-    Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding*LabelSpace, Axes.Position(2)+Axes.Position(4)+1.5*FontSize, 0 0 ];
+    % Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding*LabelSpace, Axes.Position(2)+Axes.Position(4)+1.5*FontSize, 0 0 ];
+        Txt.Position =  [X(CornerLocation(2))-2.25*FontSize+xPadding*LabelSpace, Axes.Position(2)+Axes.Position(4)+1.75*FontSize, 0 0 ];
+
     Txt.Units = 'normalized';
 end
 

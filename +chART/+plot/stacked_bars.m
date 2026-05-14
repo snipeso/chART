@@ -23,7 +23,7 @@ end
 
 if ~isempty(Legend)
     legend(Legend)
-    set(legend, 'ItemTokenSize', [7 7], 'location', 'northeast')
+    set(legend, 'ItemTokenSize', [7 7], 'location', 'northeast', 'FontSize', PlotProps.Text.LegendSize)
 end
 
 for idxBar = 1:numel(Bars)
